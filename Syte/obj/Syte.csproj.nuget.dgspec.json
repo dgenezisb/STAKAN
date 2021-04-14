@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\maks_\\Desktop\\Project\\STAKAN\\Syte\\Syte.csproj": {}
+    "C:\\Users\\Nikita\\Documents\\GitHub\\STAKAN\\STAKAN\\Syte\\Syte.csproj": {}
   },
   "projects": {
-    "C:\\Users\\maks_\\Desktop\\Project\\STAKAN\\Syte\\Syte.csproj": {
+    "C:\\Users\\Nikita\\Documents\\GitHub\\STAKAN\\STAKAN\\Syte\\Syte.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\maks_\\Desktop\\Project\\STAKAN\\Syte\\Syte.csproj",
+        "projectUniqueName": "C:\\Users\\Nikita\\Documents\\GitHub\\STAKAN\\STAKAN\\Syte\\Syte.csproj",
         "projectName": "Syte",
-        "projectPath": "C:\\Users\\maks_\\Desktop\\Project\\STAKAN\\Syte\\Syte.csproj",
-        "packagesPath": "C:\\Users\\maks_\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\maks_\\Desktop\\Project\\STAKAN\\Syte\\obj\\",
+        "projectPath": "C:\\Users\\Nikita\\Documents\\GitHub\\STAKAN\\STAKAN\\Syte\\Syte.csproj",
+        "packagesPath": "C:\\Users\\Nikita\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Nikita\\Documents\\GitHub\\STAKAN\\STAKAN\\Syte\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\maks_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Nikita\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -57,7 +57,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
         }
       }
     }
