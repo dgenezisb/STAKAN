@@ -16,12 +16,13 @@ namespace Syte.Mocks
             {
                 return new List<Book>                                                       //ЗДЕСЬ ОПИСАТЬ КНИГИ НА САЙТЕ
                 {
-                    new Book{Name = "", ShortDesc = "", LongDesc = "", Image = "", IsFavourite = false ,  Category= _categoryBooks.ListofCategories.ElementAt(2) }
+                    new Book{Name = "", Description = "", Image = "", IsFavourite = false ,  Category= _categoryBooks.ListofCategories.ElementAt(2) }
                 };
             }
         
         }
         public IEnumerable<Book> GetFavouriteBooks { get; set; }
+        IEnumerable<Book> IAllBooks.Books { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public Book GetObjectBook(int BookID)
         {

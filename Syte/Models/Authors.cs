@@ -1,4 +1,4 @@
-﻿using Syte.interfaces;
+﻿using Syte.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
