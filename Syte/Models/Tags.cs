@@ -5,12 +5,10 @@ using System.Threading.Tasks;
 
 namespace Syte.Models
 {
-    public class Category
+    public class Tags
     {
         public int Id { set; get; }
-        public string CategoryName { set; get; }
-        public string Desk { set; get; }
+        public string Name { set; get; }
         public List<Book> Books { set; get; }
-
     }
 }
