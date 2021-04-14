@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Biblio.Data.Models
+namespace Syte.Models
 {
     public class Category
     {
