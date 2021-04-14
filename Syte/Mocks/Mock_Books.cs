@@ -25,6 +25,7 @@ namespace Syte.Mocks
         
         }
         public IEnumerable<Book> GetFavouriteBooks { get; set; }
+        IEnumerable<Book> IAllBooks.Books { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public Book GetObjectBook(int BookID)
         {
