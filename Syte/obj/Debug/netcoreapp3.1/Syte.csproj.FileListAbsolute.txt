@@ -35,3 +35,40 @@ C:\Users\Nikita\Documents\GitHub\STAKAN\STAKAN\Syte\obj\Debug\netcoreapp3.1\Syte
 C:\Users\Nikita\Documents\GitHub\STAKAN\STAKAN\Syte\obj\Debug\netcoreapp3.1\Syte.pdb
 C:\Users\Nikita\Documents\GitHub\STAKAN\STAKAN\Syte\obj\Debug\netcoreapp3.1\Syte.genruntimeconfig.cache
 C:\Users\Nikita\Documents\GitHub\STAKAN\STAKAN\Syte\obj\Debug\netcoreapp3.1\Syte.csproj.CopyComplete
+C:\Users\L450 User\Documents\GitHub\STAKAN\Syte\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\L450 User\Documents\GitHub\STAKAN\Syte\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\L450 User\Documents\GitHub\STAKAN\Syte\bin\Debug\netcoreapp3.1\Syte.exe
+C:\Users\L450 User\Documents\GitHub\STAKAN\Syte\bin\Debug\netcoreapp3.1\Syte.deps.json
+C:\Users\L450 User\Documents\GitHub\STAKAN\Syte\bin\Debug\netcoreapp3.1\Syte.runtimeconfig.json
+C:\Users\L450 User\Documents\GitHub\STAKAN\Syte\bin\Debug\netcoreapp3.1\Syte.runtimeconfig.dev.json
+C:\Users\L450 User\Documents\GitHub\STAKAN\Syte\bin\Debug\netcoreapp3.1\Syte.dll
+C:\Users\L450 User\Documents\GitHub\STAKAN\Syte\bin\Debug\netcoreapp3.1\Syte.pdb
+C:\Users\L450 User\Documents\GitHub\STAKAN\Syte\bin\Debug\netcoreapp3.1\Syte.Views.dll
+C:\Users\L450 User\Documents\GitHub\STAKAN\Syte\bin\Debug\netcoreapp3.1\Syte.Views.pdb
+C:\Users\L450 User\Documents\GitHub\STAKAN\Syte\obj\Debug\netcoreapp3.1\Syte.csprojAssemblyReference.cache
+C:\Users\L450 User\Documents\GitHub\STAKAN\Syte\obj\Debug\netcoreapp3.1\Syte.AssemblyInfoInputs.cache
+C:\Users\L450 User\Documents\GitHub\STAKAN\Syte\obj\Debug\netcoreapp3.1\Syte.AssemblyInfo.cs
+C:\Users\L450 User\Documents\GitHub\STAKAN\Syte\obj\Debug\netcoreapp3.1\Syte.csproj.CoreCompileInputs.cache
+C:\Users\L450 User\Documents\GitHub\STAKAN\Syte\obj\Debug\netcoreapp3.1\Syte.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\L450 User\Documents\GitHub\STAKAN\Syte\obj\Debug\netcoreapp3.1\Syte.RazorAssemblyInfo.cache
+C:\Users\L450 User\Documents\GitHub\STAKAN\Syte\obj\Debug\netcoreapp3.1\Syte.RazorAssemblyInfo.cs
+C:\Users\L450 User\Documents\GitHub\STAKAN\Syte\obj\Debug\netcoreapp3.1\staticwebassets\Syte.StaticWebAssets.Manifest.cache
+C:\Users\L450 User\Documents\GitHub\STAKAN\Syte\obj\Debug\netcoreapp3.1\staticwebassets\Syte.StaticWebAssets.xml
+C:\Users\L450 User\Documents\GitHub\STAKAN\Syte\obj\Debug\netcoreapp3.1\scopedcss\bundle\Syte.styles.css
+C:\Users\L450 User\Documents\GitHub\STAKAN\Syte\obj\Debug\netcoreapp3.1\Syte.TagHelpers.input.cache
+C:\Users\L450 User\Documents\GitHub\STAKAN\Syte\obj\Debug\netcoreapp3.1\Syte.TagHelpers.output.cache
+C:\Users\L450 User\Documents\GitHub\STAKAN\Syte\obj\Debug\netcoreapp3.1\Syte.RazorCoreGenerate.cache
+C:\Users\L450 User\Documents\GitHub\STAKAN\Syte\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+C:\Users\L450 User\Documents\GitHub\STAKAN\Syte\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
+C:\Users\L450 User\Documents\GitHub\STAKAN\Syte\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
+C:\Users\L450 User\Documents\GitHub\STAKAN\Syte\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\L450 User\Documents\GitHub\STAKAN\Syte\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\L450 User\Documents\GitHub\STAKAN\Syte\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
+C:\Users\L450 User\Documents\GitHub\STAKAN\Syte\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+C:\Users\L450 User\Documents\GitHub\STAKAN\Syte\obj\Debug\netcoreapp3.1\Syte.RazorTargetAssemblyInfo.cache
+C:\Users\L450 User\Documents\GitHub\STAKAN\Syte\obj\Debug\netcoreapp3.1\Syte.RazorTargetAssemblyInfo.cs
+C:\Users\L450 User\Documents\GitHub\STAKAN\Syte\obj\Debug\netcoreapp3.1\Syte.Views.pdb
+C:\Users\L450 User\Documents\GitHub\STAKAN\Syte\obj\Debug\netcoreapp3.1\Syte.dll
+C:\Users\L450 User\Documents\GitHub\STAKAN\Syte\obj\Debug\netcoreapp3.1\Syte.pdb
+C:\Users\L450 User\Documents\GitHub\STAKAN\Syte\obj\Debug\netcoreapp3.1\Syte.genruntimeconfig.cache
+C:\Users\L450 User\Documents\GitHub\STAKAN\Syte\obj\Debug\netcoreapp3.1\Syte.csproj.CopyComplete
