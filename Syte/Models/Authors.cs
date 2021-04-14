@@ -8,9 +8,9 @@ namespace Syte.Models
 {
     public class Authors
     {
-        public int id { set; get; }
-        public string name { set; get; }
-        public string surname { set; get; }
+        public int Id { set; get; }
+        public string Name { set; get; }
+        public string Surname { set; get; }
         public int DateBD { set; get; }
         public int DateOfdeath { set; get; }
         public List<Book> book { set; get; }
