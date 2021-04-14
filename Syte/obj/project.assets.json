@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nikita\\Documents\\GitHub\\STAKAN\\STAKAN\\Syte\\Syte.csproj",
+      "projectUniqueName": "C:\\Users\\Nikita\\source\\repos\\stakan2\\Syte\\Syte.csproj",
       "projectName": "Syte",
-      "projectPath": "C:\\Users\\Nikita\\Documents\\GitHub\\STAKAN\\STAKAN\\Syte\\Syte.csproj",
+      "projectPath": "C:\\Users\\Nikita\\source\\repos\\stakan2\\Syte\\Syte.csproj",
       "packagesPath": "C:\\Users\\Nikita\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Nikita\\Documents\\GitHub\\STAKAN\\STAKAN\\Syte\\obj\\",
+      "outputPath": "C:\\Users\\Nikita\\source\\repos\\stakan2\\Syte\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Nikita\\AppData\\Roaming\\NuGet\\NuGet.Config",
