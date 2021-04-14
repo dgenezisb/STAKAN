@@ -16,10 +16,10 @@ namespace Syte.Mocks
                 {
                     return new List<Authors>                                       //ЗДЕСЬ ОПИСАТЬ АВТОРОВ НА САЙТЕ
                 {
-                    new Authors {name = "Евгений", surname="Велтистов",},
-                    new Authors {name = "Иван", surname="Тургенев",},
-                    new Authors {name = "Борис", surname="Акунин"},
-                    new Authors {name = "Стивенсон", surname="Роберт"}
+                    new Authors {Name = "Евгений", Surname="Велтистов",},
+                    new Authors {Name = "Иван", Surname="Тургенев",},
+                    new Authors {Name = "Борис", Surname="Акунин"},
+                    new Authors {Name = "Стивенсон", Surname="Роберт"}
 
                 };
                 }
