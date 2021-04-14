@@ -1,11 +1,11 @@
-﻿using Biblio.Data.Models;
+﻿using  Syte.interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 
-namespace Biblio.Data.Interfaces
+namespace Syte.interfaces
 {
     interface IBooksCategories
     {

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Biblio.Data.Mocks
+namespace Syte.interfaces
 {
     public class Mock_Category : IBooksCategories
     {

@@ -1,11 +1,11 @@
-﻿using Biblio.Data.Interfaces;
+﻿using Syte.interfaces;
 using Biblio.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Biblio.Data.Mocks
+namespace Syte.interfaces
 {
     public class Mock_Books : IAllBooks
     {
