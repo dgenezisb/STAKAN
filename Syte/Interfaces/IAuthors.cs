@@ -1,5 +1,4 @@
-﻿using Syte.interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,6 +7,5 @@ namespace Syte.Interfaces
 {
     interface IAuthors
     {
-        IEnumerable<Book> Books { get; }
     }
 }

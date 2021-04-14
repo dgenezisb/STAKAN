@@ -1,10 +1,10 @@
-﻿using Syte.interfaces;
+﻿using Syte.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Syte.interfaces
+namespace Syte.Interfaces
 {
     interface IAllBooks
     {
