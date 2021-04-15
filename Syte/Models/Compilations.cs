@@ -10,8 +10,6 @@ namespace Syte.Models
         public int Id { set; get; }
         public string Name { set; get; }
         public string Desc { set; get; }
-        public bool IsFavourite { set; get; }
-        public int CategoryID { set; get; }
         public List<Book> Books { set; get; }
 
     }

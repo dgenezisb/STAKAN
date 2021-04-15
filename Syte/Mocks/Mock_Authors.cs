@@ -14,20 +14,22 @@ namespace Syte.Mocks
             {
                 get
                 {
+<<<<<<< HEAD
                     return new List<Authors>                                       //ЗДЕСЬ ОПИСАТЬ  НА САЙТЕ
+=======
+                    return new List<Authors>                                       //ЗДЕСЬ ОПИСАТЬ АВТОРОВ НА САЙТЕ
+>>>>>>> b4a7c39dc18e7b56d704cf9d5be41c48da48d8c0
                 {
-                    new Authors {name = "Евгений", surname="Велтистов",},
-                    new Authors {name = "Иван", surname="Тургенев",},
-                    new Authors {name = "Борис", surname="Акунин"},
-                    new Authors {name = "Стивенсон", surname="Роберт"}
+                    new Authors {Name = "Евгений", Surname="Велтистов",},
+                    new Authors {Name = "Иван", Surname="Тургенев",},
+                    new Authors {Name = "Борис", Surname="Акунин"},
+                    new Authors {Name = "Стивенсон", Surname="Роберт"}
 
                 };
                 }
 
 
             }
-
-        public IEnumerable<Book> Books { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
 
 

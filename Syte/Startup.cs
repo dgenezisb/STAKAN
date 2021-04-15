@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Syte.Interfaces;
+using Syte.Mocks;
 
 namespace Syte
 {
@@ -23,6 +25,10 @@ namespace Syte
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
+            services.AddTransient<IAllBooks, Mock_Books>();
+            services.AddTransient<IBooksCategories, Mock_Category>();
+            services.AddTransient<IAuthors, Mock_Authors>();
             services.AddControllersWithViews();
         }
 
