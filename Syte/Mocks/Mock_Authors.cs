@@ -14,7 +14,7 @@ namespace Syte.Mocks
             {
                 get
                 {
-                    return new List<Authors>                                       //ЗДЕСЬ ОПИСАТЬ КАТЕГОРИИ НА САЙТЕ
+                    return new List<Authors>                                       //ЗДЕСЬ ОПИСАТЬ  НА САЙТЕ
                 {
                     new Authors {name = "Евгений", surname="Велтистов",},
                     new Authors {name = "Иван", surname="Тургенев",},
