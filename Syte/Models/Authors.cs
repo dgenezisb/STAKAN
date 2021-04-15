@@ -11,8 +11,8 @@ namespace Syte.Models
         public int Id { set; get; }
         public string Name { set; get; }
         public string Surname { set; get; }
-        public int DateBD { set; get; }
-        public int DateOfdeath { set; get; }
+        public string DateBD { set; get; }
+        public string DateOfdeath { set; get; }
         public List<Book> Books { set; get; }
 
     }

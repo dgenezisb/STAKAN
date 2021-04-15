@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Syte.Mocks
 {
-    public class Mock_Category : IBooksCategories
+    public class Mock_Category : ICategories
     {
         public IEnumerable<Category> ListofCategories {
             get{
