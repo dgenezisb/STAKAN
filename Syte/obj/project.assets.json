@@ -8,19 +8,19 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\L450 User\\.nuget\\packages\\": {}
+    "C:\\Users\\maks_\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\L450 User\\Documents\\GitHub\\STAKAN\\Syte\\Syte.csproj",
+      "projectUniqueName": "C:\\Users\\maks_\\Desktop\\Project\\ProjectUnik\\Syte\\Syte.csproj",
       "projectName": "Syte",
-      "projectPath": "C:\\Users\\L450 User\\Documents\\GitHub\\STAKAN\\Syte\\Syte.csproj",
-      "packagesPath": "C:\\Users\\L450 User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\L450 User\\Documents\\GitHub\\STAKAN\\Syte\\obj\\",
+      "projectPath": "C:\\Users\\maks_\\Desktop\\Project\\ProjectUnik\\Syte\\Syte.csproj",
+      "packagesPath": "C:\\Users\\maks_\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\maks_\\Desktop\\Project\\ProjectUnik\\Syte\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\L450 User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\maks_\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -63,7 +63,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
