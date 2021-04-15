@@ -27,7 +27,7 @@ namespace Syte
         {
             services.AddMvc();
             services.AddTransient<IAllBooks, Mock_Books>();
-            services.AddTransient<IBooksCategories, Mock_Category>();
+            services.AddTransient<ICategories, Mock_Category>();
             services.AddTransient<IAuthors, Mock_Authors>();
             services.AddControllersWithViews();
         }

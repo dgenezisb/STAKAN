@@ -15,8 +15,10 @@ namespace Syte.Models
         public bool IsFavourite { set; get; }
         public int CategoryID { set; get; }
         public virtual Category Category { set; get; }
+        public virtual Tags Tags { set; get; }
         public int PublisherID { set; get; }
         public virtual Publisher Publisher { set; get; }
+        public virtual Compilations Compilation { set; get; }
 
     }
 }

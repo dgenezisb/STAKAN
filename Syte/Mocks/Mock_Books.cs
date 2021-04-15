@@ -9,7 +9,7 @@ namespace Syte.Mocks
 {
     public class Mock_Books : IAllBooks
     {
-        private readonly IBooksCategories _categoryBooks = new Mock_Category();
+        private readonly ICategories _categoryBooks = new Mock_Category();
         public IEnumerable<Book> Books 
         {
             get
