@@ -13,7 +13,7 @@ namespace Syte.Models
         public string Surname { set; get; }
         public int DateBD { set; get; }
         public int DateOfdeath { set; get; }
-        public List<Book> book { set; get; }
+        public List<Book> Books { set; get; }
 
     }
 }

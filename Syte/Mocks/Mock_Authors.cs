@@ -26,8 +26,6 @@ namespace Syte.Mocks
 
 
             }
-
-        public IEnumerable<Book> Books { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
 
 
