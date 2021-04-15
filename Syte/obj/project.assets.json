@@ -8,19 +8,19 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\maks_\\.nuget\\packages\\": {}
+    "C:\\Users\\Nikita\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\maks_\\Desktop\\Project\\ProjectUnik\\Syte\\Syte.csproj",
+      "projectUniqueName": "C:\\Users\\Nikita\\source\\repos\\stakan2\\Syte\\Syte.csproj",
       "projectName": "Syte",
-      "projectPath": "C:\\Users\\maks_\\Desktop\\Project\\ProjectUnik\\Syte\\Syte.csproj",
-      "packagesPath": "C:\\Users\\maks_\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\maks_\\Desktop\\Project\\ProjectUnik\\Syte\\obj\\",
+      "projectPath": "C:\\Users\\Nikita\\source\\repos\\stakan2\\Syte\\Syte.csproj",
+      "packagesPath": "C:\\Users\\Nikita\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Nikita\\source\\repos\\stakan2\\Syte\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\maks_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Nikita\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -55,6 +55,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[3.1.13, 3.1.13]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -63,7 +69,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
       }
     }
   }

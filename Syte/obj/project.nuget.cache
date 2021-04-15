@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "pWEtw6xGpAF+Np5dAQZWvN0Be69/dJMDueI37voBXx6Azoo84wQT7Vg0cCK+wayn6hkk2mrmHaCwU6O8wsT0Qw==",
+  "dgSpecHash": "wzPE9/RFjwzOqdKXEfgsGCJjZWRn+V71o000ik9fmkC/wbsVHxYm1IKG1XultqHSO2Pnjh2Yp8CoIMGtgzAmjQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\maks_\\Desktop\\Project\\ProjectUnik\\Syte\\Syte.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Nikita\\source\\repos\\stakan2\\Syte\\Syte.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Nikita\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.13\\microsoft.netcore.app.host.win-x64.3.1.13.nupkg.sha512"
+  ],
   "logs": []
 }
