@@ -6,8 +6,8 @@ using Syte.Models;
 
 namespace Syte.Interfaces
 {
-    interface IAuthors
+    interface IAuthors      //Интерфейс для работы с авторами
     {
-        IEnumerable<Book> Books { get; set; }
+        IEnumerable<Authors> ListofAuthors { get;} //Функция получает список всех авторов
     }
 }

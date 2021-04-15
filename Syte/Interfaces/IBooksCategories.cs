@@ -9,6 +9,6 @@ namespace Syte.Interfaces
 {
     interface IBooksCategories
     {
-        IEnumerable<Category> ListofCategories { get; }
+        IEnumerable<Category> ListofCategories { get; } //Функция получает список категорий книг
     }
 }
