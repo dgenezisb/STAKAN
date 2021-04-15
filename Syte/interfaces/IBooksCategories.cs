@@ -7,7 +7,7 @@ using Syte.Models;
 
 namespace Syte.Interfaces
 {
-    interface IBooksCategories
+    public interface IBooksCategories
     {
         IEnumerable<Category> ListofCategories { get; } //Функция получает список категорий книг
     }
