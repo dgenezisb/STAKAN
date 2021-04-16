@@ -3,18 +3,26 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Syte.Interfaces;
 using Syte.Mocks;
+using Syte.Repository;
 
 namespace Syte
 {
     public class Startup
     {
+
+        private IConfigurationRoot _confString;
+        public Startup(IWebHostEnvironment hostEnv)
+        {
+            _confString = new ConfigurationBuilder().SetBasePath(hostEnv.ContentRootPath).AddJsonFile("dbsettings.json").Build();
+        }
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -25,8 +33,9 @@ namespace Syte
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<AppDBContext>(options => options.UseSqlServer(_confString.GetConnectionString("DefaultConnection")));
             services.AddMvc();
-            services.AddTransient<IAllBooks, Mock_Books>();
+            services.AddTransient<IAllBooks, BookRepository>();
             services.AddTransient<ICategories, Mock_Category>();
             services.AddTransient<IAuthors, Mock_Authors>();
             services.AddControllersWithViews();
@@ -35,16 +44,7 @@ namespace Syte
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
-            }
+            app.UseDeveloperExceptionPage();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -58,6 +58,12 @@ namespace Syte
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            using (var scope = app.ApplicationServices.CreateScope())
+            {
+                AppDBContext content = scope.ServiceProvider.GetRequiredService<AppDBContext>();
+                DBObjects.Initial(content);
+            }
         }
     }
 }

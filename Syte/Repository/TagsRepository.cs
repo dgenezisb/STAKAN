@@ -10,8 +10,8 @@ namespace Syte.Repository
 {
     public class TagsRepository:ITags
     {
-        private readonly AppDBContent appDBContent;
-        public TagsRepository(AppDBContent appDBContent)
+        private readonly AppDBContext appDBContent;
+        public TagsRepository(AppDBContext appDBContent)
         {
             this.appDBContent = appDBContent;
         }

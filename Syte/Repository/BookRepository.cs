@@ -11,8 +11,8 @@ namespace Syte.Repository
     public class BookRepository : IAllBooks
 
     {
-        private readonly AppDBContent appDBContent;
-            public BookRepository(AppDBContent appDBContent)
+        private readonly AppDBContext appDBContent;
+        public BookRepository(AppDBContext appDBContent)
         {
             this.appDBContent = appDBContent;
         }

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Syte;
 
 namespace Syte.Mocks
 {
@@ -20,8 +21,8 @@ namespace Syte.Mocks
                             Author="Евгений Велтистов", 
                             Description = "Приключения Электроника - знаменитая повесть Евгения Велтистова о приключениях Сережи Сыроежкина и его двойника - робота Электроника.", 
                             Image = "https://forkids.newbookshop.ru/pictures/1024121942.jpg", 
-                            IsFavourite = false ,  
-                            Category= _categoryBooks.ListofCategories.ElementAt(2) },
+                            IsFavourite = false ,
+                            Category= _categoryBooks.ListofCategories.ElementAt(2)},
                     new Book{Name = "Муму", 
                              Author="Иван Тургенев",
                              Description = "Рассказ русского писателя Ивана Сергеевича Тургенева, написанный в 1852 году.",
@@ -39,7 +40,7 @@ namespace Syte.Mocks
                              Description = "Роман шотландского писателя Роберта Стивенсона о приключениях, связанных с поиском сокровищ, спрятанных капитаном Флинтом на необитаемом острове.",
                              Image = "https://cosmetics.minemegashop.ru/images/1022251489.jpg",
                              IsFavourite = true, 
-                             Category= _categoryBooks.ListofCategories.ElementAt(3)},
+                             Category= _categoryBooks.ListofCategories.ElementAt(3)}
                 };
             }
             set => throw new NotImplementedException(); //Тут реализовать добавление книг
