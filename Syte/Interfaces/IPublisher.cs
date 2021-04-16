@@ -6,8 +6,8 @@ using Syte.Models;
 
 namespace Syte.Interfaces
 {
-    interface ICompilations
+    interface IPublisher
     {
-        IEnumerable<Compilations> ListofCompilations{ get; } //Функция получает список всех подборок
+        IEnumerable<Publisher> ListofPublisher { get; } //Функция получает список всех издательств
     }
 }

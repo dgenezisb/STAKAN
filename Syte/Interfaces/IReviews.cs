@@ -6,8 +6,8 @@ using Syte.Models;
 
 namespace Syte.Interfaces
 {
-    interface ICompilations
+    interface IReviews
     {
-        IEnumerable<Compilations> ListofCompilations{ get; } //Функция получает список всех подборок
+        IEnumerable<Reviews> ListofReviews { get; }
     }
 }

@@ -9,6 +9,15 @@ namespace Syte.Mocks
 {
     public class Mock_MyBooks : IMyBooks
     {
-        public IEnumerable<Book> GetFavouriteBooks => throw new NotImplementedException();
+        public IEnumerable<MyBooks> GetFavouriteBooks
+        {
+            get
+            {
+                return new List<MyBooks>                                       //ЗДЕСЬ ОПИСАТЬ СПИСОК ИЗБРАННЫХ КНИГ НА САЙТЕ
+                {
+                    new MyBooks {Name = "Мои книги", }
+                };
+            }
+        }
     }
 }
