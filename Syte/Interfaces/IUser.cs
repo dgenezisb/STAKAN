@@ -6,8 +6,8 @@ using Syte.Models;
 
 namespace Syte.Interfaces
 {
-    interface ICompilations
+    interface IUser
     {
-        IEnumerable<Compilations> ListofCompilations{ get; } //Функция получает список всех подборок
+        IEnumerable<User> ListofUser { get; } //Функция получает список всех авторов
     }
 }

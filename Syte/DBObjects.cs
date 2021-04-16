@@ -14,7 +14,9 @@ namespace Syte
         {
 
             if (!content.Category.Any())
+            
                 content.Category.AddRange(Categories.Select(c => c.Value));
+            
 
             if (!content.Book.Any())
             {

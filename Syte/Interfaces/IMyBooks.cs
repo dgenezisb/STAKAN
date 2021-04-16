@@ -8,6 +8,6 @@ namespace Syte.Interfaces
 {
    public interface IMyBooks
     {
-      public IEnumerable<Book> GetFavouriteBooks { get; } //Получить список любимых книг или добавить в него элемент
+     IEnumerable<MyBooks> GetFavouriteBooks { get; } //Получить список любимых книг или добавить в него элемент
     }
 }

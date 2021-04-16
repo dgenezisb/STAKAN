@@ -9,7 +9,8 @@ namespace Syte.Mocks
 {
     public class Mock_Category : ICategories
     {
-        public IEnumerable<Category> ListofCategories {
+        public IEnumerable<Category> ListofCategories 
+        {
             get{
                 return new List<Category>                                       //ЗДЕСЬ ОПИСАТЬ КАТЕГОРИИ НА САЙТЕ
                 {
@@ -19,12 +20,7 @@ namespace Syte.Mocks
                     new Category {CategoryName = "Приключения", Description="Истории об отважных путешественниках"}
 
                 };
-                
-
-
             }
-        
-        
         }
     }
 }

@@ -9,6 +9,7 @@ namespace Syte.Models
     {
         public int Id { get; set; }
         public string Name { set; get; }
+        public int Age { set; get; }
 
     }
 }

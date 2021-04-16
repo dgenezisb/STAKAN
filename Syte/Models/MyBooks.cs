@@ -8,9 +8,7 @@ namespace Syte.Models
     public class MyBooks
     {
         public int Id { set; get; }
+        public string Name { get; set; }
         public List<Book> Books { set; get; }
-
-
-
     }
 }
