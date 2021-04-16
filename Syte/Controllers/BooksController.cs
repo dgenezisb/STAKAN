@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Syte.Interfaces;
+using Syte.ViewModels;
 
 namespace Syte.Controllers
 {
@@ -19,8 +20,11 @@ namespace Syte.Controllers
         }
         public ViewResult List()
         {
-            var books = _allBooks.Books;
-            return View();
+            ViewBag.Title = "Наши книги";
+            BooksListViewModel obj = new BooksListViewModel();
+            obj.AllBooks = _allBooks.Books;
+            obj.CurrentCategory = "Тут должно быть название жанра";
+            return View(obj);
         }
     }
 }
