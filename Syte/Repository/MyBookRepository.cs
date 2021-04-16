@@ -10,8 +10,8 @@ namespace Syte.Repository
 {
     public class MyBookRepository : IMyBooks
     {
-        private readonly AppDBContent appDBContent;
-        public MyBookRepository(AppDBContent appDBContent)
+        private readonly AppDBContext appDBContent;
+        public MyBookRepository(AppDBContext appDBContent)
         {
             this.appDBContent = appDBContent;
         }
