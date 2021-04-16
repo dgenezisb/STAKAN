@@ -11,14 +11,14 @@ namespace Syte.Repository
     public class BookRepository : IAllBooks
 
     {
-        private readonly AppDBContext appDBContent;
-        public BookRepository(AppDBContext appDBContent)
+        private readonly AppDBContext appDBContext;
+        public BookRepository(AppDBContext appDBContext)
         {
-            this.appDBContent = appDBContent;
+            this.appDBContext = appDBContext;
         }
-        public IEnumerable<Book> Books => appDBContent.Book.Include(c=> c.Category); // получаем все данные, которые релевантны опр категории
+        public IEnumerable<Book> Books => appDBContext.Book.Include(c=> c.Category); // получаем все данные, которые релевантны опр категории
 
-        public Book GetObjectBook(int BookID) => appDBContent.Book.FirstOrDefault(p=>p.Id==BookID);
+        public Book GetObjectBook(int BookID) => appDBContext.Book.FirstOrDefault(p=>p.Id==BookID);
         
     }
 }

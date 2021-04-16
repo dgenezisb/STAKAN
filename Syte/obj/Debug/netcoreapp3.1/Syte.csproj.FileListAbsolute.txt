@@ -253,3 +253,4 @@ D:\OOP\Syte\obj\Debug\netcoreapp3.1\Syte.csproj.CopyComplete
 D:\OOP\Syte\obj\Debug\netcoreapp3.1\Syte.dll
 D:\OOP\Syte\obj\Debug\netcoreapp3.1\Syte.pdb
 D:\OOP\Syte\obj\Debug\netcoreapp3.1\Syte.genruntimeconfig.cache
+C:\Users\maks_\Desktop\Project\ProjectUnik\Syte\obj\Debug\netcoreapp3.1\Syte.csprojAssemblyReference.cache
