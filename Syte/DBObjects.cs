@@ -18,7 +18,7 @@ namespace Syte
                     new Book
                     {
                         Name = "Приключения электроника",
-                        Author = "Евгений Велтистов",
+                        Author = Authors["Велтистов"],
                         Description = "Приключения Электроника - знаменитая повесть Евгения Велтистова о приключениях Сережи Сыроежкина и его двойника - робота Электроника.",
                         Image = "https://forkids.newbookshop.ru/pictures/1024121942.jpg",
                         IsFavourite = false,
@@ -27,7 +27,7 @@ namespace Syte
                     new Book
                     {
                         Name = "Муму",
-                        Author = "Иван Тургенев",
+                        Author = Authors["Тургенев"],
                         Description = "Рассказ русского писателя Ивана Сергеевича Тургенева, написанный в 1852 году.",
                         Image = "https://productforhomeandgarden.ru/img/1023750205.jpg",
                         IsFavourite = true,
@@ -36,7 +36,7 @@ namespace Syte
                     new Book
                     {
                         Name = "Азазазель",
-                        Author = "Борис Акунин",
+                        Author = Authors["Акунин"],
                         Description = "Книга Бориса Акунина, первый роман из серии о необыкновенном сыщике Эрасте Петровиче Фандорине «Приключения Эраста Фандорина».",
                         Image = "https://productforhomeandgarden.ru/img/1016539304.jpg",
                         IsFavourite = false,
@@ -45,7 +45,7 @@ namespace Syte
                     new Book
                     {
                         Name = "Остров сокровищ",
-                        Author = "Роберт Стивенсон",
+                        Author = Authors["Стивенсон"],
                         Description = "Роман шотландского писателя Роберта Стивенсона о приключениях, связанных с поиском сокровищ, спрятанных капитаном Флинтом на необитаемом острове.",
                         Image = "https://cosmetics.minemegashop.ru/images/1022251489.jpg",
                         IsFavourite = true,
@@ -53,6 +53,11 @@ namespace Syte
                     }
                 );
             }
+
+            if (!content.Category.Any())
+                content.Category.AddRange(Categories.Select(c => c.Value));
+            if (!content.Authors.Any())
+                content.Authors.AddRange(Authors.Select(c => c.Value));
 
             content.SaveChanges();
 
@@ -77,6 +82,28 @@ namespace Syte
                         category.Add(elem.CategoryName, elem);
                 }
                 return category;
+            }
+        }
+
+        private static Dictionary<string, Authors> authors;
+        public static Dictionary<string, Authors> Authors
+        {
+            get
+            {
+                if (authors == null)
+                {
+                    var list = new Authors[]
+                    {
+                        new Authors {Surname="Велтистов", Name = "Евгений", DateBD="1934/7/21",DateOfdeath="1989/9/1"},
+                        new Authors {Surname="Тургенев", Name = "Иван", DateBD="1818/11/9",DateOfdeath="1883/9/3"},
+                        new Authors {Surname="Акунин", Name = "Борис", DateBD="1956/5/20",DateOfdeath="still alive"},
+                        new Authors {Surname="Стивенсон", Name = "Роберт", DateBD="1850/11/13",DateOfdeath="1894/12/3"}
+                    };
+                    authors = new Dictionary<string, Authors>();
+                    foreach (Authors elem in list)
+                        authors.Add(elem.Surname, elem);
+                }
+                return authors;
             }
         }
     }
