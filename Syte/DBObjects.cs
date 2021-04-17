@@ -12,12 +12,6 @@ namespace Syte
     {
         public static void Initial(AppDBContext content)
         {
-
-            if (!content.Category.Any())
-            
-                content.Category.AddRange(Categories.Select(c => c.Value));
-            
-
             if (!content.Book.Any())
             {
                 content.AddRange(
