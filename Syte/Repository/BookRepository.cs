@@ -18,6 +18,8 @@ namespace Syte.Repository
         }
         public IEnumerable<Book> Books => appDBContext.Book.Include(c=> c.Category); // получаем все данные, которые релевантны опр категории
 
+        public IEnumerable<Book> GetAuthorsBooks => appDBContext.Book.Include(c => c.Author);// получаем все данные, которые релевантны опр автору
+
         public Book GetObjectBook(int BookID) => appDBContext.Book.FirstOrDefault(p=>p.Id==BookID);
         
     }

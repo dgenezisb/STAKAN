@@ -37,7 +37,7 @@ namespace Syte
             services.AddMvc();
             services.AddTransient<IAllBooks, BookRepository>();
             services.AddTransient<ICategories, CategoryRepository>();
-            //services.AddTransient<IAuthors, Mock_Authors>();
+            services.AddTransient<IAuthors, AuthorsRepository>();
             //services.AddTransient<ICompilations, Mock_Compilations>();
             //services.AddTransient<IMyBooks, Mock_MyBooks>();
             //services.AddTransient<IPublisher, Mock_Publisher>();

@@ -225,7 +225,6 @@ D:\OOP\Syte\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.
 D:\OOP\Syte\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\OOP\Syte\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 D:\OOP\Syte\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-D:\OOP\Syte\obj\Debug\netcoreapp3.1\Syte.csprojAssemblyReference.cache
 D:\OOP\Syte\obj\Debug\netcoreapp3.1\Syte.AssemblyInfoInputs.cache
 D:\OOP\Syte\obj\Debug\netcoreapp3.1\Syte.AssemblyInfo.cs
 D:\OOP\Syte\obj\Debug\netcoreapp3.1\Syte.csproj.CoreCompileInputs.cache

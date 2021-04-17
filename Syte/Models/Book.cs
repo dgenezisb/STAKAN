@@ -9,8 +9,8 @@ namespace Syte.Models
     {
         public int Id { set; get; }
         public string Name { set; get; }
-        public string Author { set; get; }
-        //public virtual Authors Author { set; get; }
+        //public string Author { set; get; }
+        public virtual Authors Author { set; get; }
         public string Description { set; get; }
         public string Image { set; get; }
         public bool IsFavourite { set; get; }
