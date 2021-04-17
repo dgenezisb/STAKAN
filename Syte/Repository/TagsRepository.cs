@@ -8,7 +8,7 @@
 
 //namespace Syte.Repository
 //{
-//    public class TagsRepository:ITags
+//    public class TagsRepository : ITags
 //    {
 //        private readonly AppDBContext appDBContent;
 //        public TagsRepository(AppDBContext appDBContent)

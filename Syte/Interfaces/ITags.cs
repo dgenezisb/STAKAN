@@ -6,8 +6,8 @@
 
 //namespace Syte.Interfaces
 //{
-//   public interface ITags
+//    public interface ITags
 //    {
-//        IEnumerable<Tags> ListofTags { get;}
+//        IEnumerable<Tags> ListofTags { get; }
 //    }
 //}
