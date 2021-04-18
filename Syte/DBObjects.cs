@@ -64,7 +64,8 @@ namespace Syte
                 content.Authors.AddRange(Authors.Select(c => c.Value));
             if (!content.Reviews.Any())
                 content.Reviews.AddRange(Reviews.Select(c => c.Value));
-
+            if (!content.Publisher.Any())
+                content.Publisher.AddRange(Publisher.Select(c => c.Value));
             content.SaveChanges();
 
         }
@@ -135,6 +136,28 @@ namespace Syte
                 return review;
             }
         }
+        private static Dictionary<string, Publisher> publishers;
+        public static Dictionary<string, Publisher> Publisher
+        {
+            get
+            {
+                if (publishers == null)
+                {
+                    var list = new Publisher[]
+                    {
+                        new Publisher {Name="Десяточка", Description = "Группа компаний «Десяточка»", Commercial=true},
+                        new Publisher {Name="ДЕАН", Description = "Издательство ДЕАН", Commercial=false},
+                        new Publisher {Name="Добрая книга", Description = "«Добрая книга»", Commercial=true},
+                        new Publisher {Name="Дрофа", Description = "«Дрофа»", Commercial=false}
+                    };
+                    publishers = new Dictionary<string, Publisher>();
+                    foreach (Publisher elem in list)
+                        publishers.Add(elem.Name, elem);
+                }
+                return publishers;
+            }
+        }
+    }
 
     }
-}
+

@@ -14,6 +14,6 @@ namespace Syte.Repository
         {
             this.appDBContent = appDBContent;
         }
-        public IEnumerable<Publisher> ListofPublishers => appDBContent.Publishers;
+        public IEnumerable<Publisher> ListofPublishers => appDBContent.Publisher;
     }
 }
