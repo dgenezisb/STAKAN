@@ -35,7 +35,7 @@ namespace Syte
                     },
                     new Book
                     {
-                        Name = "Азазазель",
+                        Name = "Азазель",
                         Author = Authors["Акунин"],
                         Description = "Книга Бориса Акунина, первый роман из серии о необыкновенном сыщике Эрасте Петровиче Фандорине «Приключения Эраста Фандорина».",
                         Image = "https://productforhomeandgarden.ru/img/1016539304.jpg",
