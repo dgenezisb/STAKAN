@@ -16,7 +16,7 @@ namespace Syte
 
         public DbSet <Book> Book { get; set; }
         public DbSet <Category> Category { get; set; }
-
+        public DbSet<Compilations> Compilation { get; set; }
         public DbSet<Publisher> Publisher { get; set; }
         public DbSet<Reviews> Reviews { get; set; }
         public DbSet<Authors> Authors { get; set; }

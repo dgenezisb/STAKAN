@@ -14,7 +14,7 @@ namespace Syte.Migrations
                 defaultValue: 0);
 
             migrationBuilder.CreateTable(
-                name: "Publishers",
+                name: "Publisher",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -25,7 +25,7 @@ namespace Syte.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Publishers", x => x.Id);
+                    table.PrimaryKey("PK_Publisher", x => x.Id);
                 });
 
             migrationBuilder.CreateIndex(
@@ -34,10 +34,10 @@ namespace Syte.Migrations
                 column: "PublisherID");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Book_Publishers_PublisherID",
+                name: "FK_Book_Publisher_PublisherID",
                 table: "Book",
                 column: "PublisherID",
-                principalTable: "Publishers",
+                principalTable: "Publisher",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);
         }
@@ -45,11 +45,11 @@ namespace Syte.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Book_Publishers_PublisherID",
+                name: "FK_Book_Publisher_PublisherID",
                 table: "Book");
 
             migrationBuilder.DropTable(
-                name: "Publishers");
+                name: "Publisher");
 
             migrationBuilder.DropIndex(
                 name: "IX_Book_PublisherID",

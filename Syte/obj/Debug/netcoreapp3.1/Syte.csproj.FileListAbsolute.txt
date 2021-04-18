@@ -151,7 +151,6 @@ C:\Users\Nikita\source\repos\stakan2\Syte\bin\Debug\netcoreapp3.1\runtimes\unix\
 C:\Users\Nikita\source\repos\stakan2\Syte\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\Nikita\source\repos\stakan2\Syte\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\Nikita\source\repos\stakan2\Syte\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Nikita\source\repos\stakan2\Syte\obj\Debug\netcoreapp3.1\Syte.csprojAssemblyReference.cache
 C:\Users\Nikita\source\repos\stakan2\Syte\obj\Debug\netcoreapp3.1\Syte.AssemblyInfoInputs.cache
 C:\Users\Nikita\source\repos\stakan2\Syte\obj\Debug\netcoreapp3.1\Syte.AssemblyInfo.cs
 C:\Users\Nikita\source\repos\stakan2\Syte\obj\Debug\netcoreapp3.1\Syte.csproj.CoreCompileInputs.cache
@@ -269,3 +268,4 @@ D:\Project\Syte\obj\Debug\netcoreapp3.1\Syte.csproj.CopyComplete
 D:\Project\Syte\obj\Debug\netcoreapp3.1\Syte.dll
 D:\Project\Syte\obj\Debug\netcoreapp3.1\Syte.pdb
 D:\Project\Syte\obj\Debug\netcoreapp3.1\Syte.genruntimeconfig.cache
+C:\Users\Nikita\source\repos\stakan2\Syte\obj\Debug\netcoreapp3.1\Syte.csprojAssemblyReference.cache
