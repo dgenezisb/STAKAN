@@ -60,7 +60,7 @@ namespace Syte
                         //Reviews = Reviews["Ваня"]
                     }
                 );
-        }
+            }
 
             if (!content.Category.Any())
                 content.Category.AddRange(Categories.Select(c => c.Value));
