@@ -64,7 +64,8 @@ namespace Syte
                 content.Authors.AddRange(Authors.Select(c => c.Value));
             if (!content.Reviews.Any())
                 content.Reviews.AddRange(Reviews.Select(c => c.Value));
-
+            if (!content.Publisher.Any())
+                content.Publisher.AddRange(Publisher.Select(c => c.Value));
             content.SaveChanges();
 
         }
@@ -135,28 +136,28 @@ namespace Syte
                 return review;
             }
         }
-
-        private static Dictionary<string, Publisher> publisher;
-        public static Dictionary<string, Reviews> Publisher
+        private static Dictionary<string, Publisher> publishers;
+        public static Dictionary<string, Publisher> Publisher
         {
             get
             {
-                if (publisher == null)
+                if (publishers == null)
                 {
                     var list = new Publisher[]
                     {
-                        new Publisher {Name = "Петя", Review="Реценция 1",},
-                        new Publisher {Name = "Вася",Review="Реценция 2",},
-                        new Publisher {Name = "Игорь", Review="Реценция 3"},
-                        new Publisher {Name = "Ваня", Review="Реценция 4"}
+                        new Publisher {Name="Десяточка", Description = "Группа компаний «Десяточка»", Commercial=true},
+                        new Publisher {Name="ДЕАН", Description = "Издательство ДЕАН", Commercial=false},
+                        new Publisher {Name="Добрая книга", Description = "«Добрая книга»", Commercial=true},
+                        new Publisher {Name="Дрофа", Description = "«Дрофа»", Commercial=false}
                     };
-                    publisher = new Dictionary<string, Publisher>();
+                    publishers = new Dictionary<string, Publisher>();
                     foreach (Publisher elem in list)
-                        review.Add(elem.Name, elem);
+                        publishers.Add(elem.Name, elem);
                 }
-                return review;
+                return publishers;
             }
         }
     }
 
-}
+    }
+
