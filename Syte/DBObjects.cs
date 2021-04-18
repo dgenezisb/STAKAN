@@ -136,5 +136,27 @@ namespace Syte
             }
         }
 
+        private static Dictionary<string, Publisher> publisher;
+        public static Dictionary<string, Reviews> Publisher
+        {
+            get
+            {
+                if (publisher == null)
+                {
+                    var list = new Publisher[]
+                    {
+                        new Publisher {Name = "Петя", Review="Реценция 1",},
+                        new Publisher {Name = "Вася",Review="Реценция 2",},
+                        new Publisher {Name = "Игорь", Review="Реценция 3"},
+                        new Publisher {Name = "Ваня", Review="Реценция 4"}
+                    };
+                    publisher = new Dictionary<string, Publisher>();
+                    foreach (Publisher elem in list)
+                        review.Add(elem.Name, elem);
+                }
+                return review;
+            }
+        }
     }
+
 }

@@ -20,6 +20,8 @@ namespace Syte
         public DbSet<Reviews> Reviews { get; set; }
         public DbSet<Authors> Authors { get; set; }
 
+        public DbSet<Publisher> Publisher { get; set; }
+
         //public IEnumerable<Tags> Tags { get; internal set; }
     }
 }
