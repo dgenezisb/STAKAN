@@ -52,7 +52,7 @@ namespace Syte
                         Category = Categories["Приключения"]
                     }
                 );
-            }
+        }
 
             if (!content.Category.Any())
                 content.Category.AddRange(Categories.Select(c => c.Value));
