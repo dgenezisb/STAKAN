@@ -9,16 +9,19 @@ namespace Syte.Models
     {
         public int Id { set; get; }
         public string Name { set; get; }
-        public string Author { set; get; }
+        //public string Author { set; get; }
+        public virtual Authors Author { set; get; }
         public string Description { set; get; }
         public string Image { set; get; }
         public bool IsFavourite { set; get; }
         public int CategoryID { set; get; }
+        //public virtual MyBooks MyBooks { set; get; }
+        //public virtual Reviews Reviews { set; get; }
         public virtual Category Category { set; get; }
-        public virtual Tags Tags { set; get; }
-        public int PublisherID { set; get; }
-        public virtual Publisher Publisher { set; get; }
-        public virtual Compilations Compilation { set; get; }
+        //public virtual Tags Tags { set; get; }
+        //public int PublisherID { set; get; }
+        //public virtual Publisher Publisher { set; get; }
+        //public virtual Compilations Compilation { set; get; }
 
     }
 }

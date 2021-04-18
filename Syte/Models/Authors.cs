@@ -14,6 +14,5 @@ namespace Syte.Models
         public string DateBD { set; get; }
         public string DateOfdeath { set; get; }
         public List<Book> Books { set; get; }
-
     }
 }

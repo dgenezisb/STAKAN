@@ -9,8 +9,8 @@ namespace Syte.Repository
 {
     public class CategoryRepository : ICategories
     {
-        private readonly AppDBContent appDBContent;
-        public CategoryRepository(AppDBContent appDBContent)
+        private readonly AppDBContext appDBContent;
+        public CategoryRepository(AppDBContext appDBContent)
         {
             this.appDBContent = appDBContent;
         }
