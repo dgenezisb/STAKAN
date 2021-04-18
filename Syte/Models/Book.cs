@@ -10,6 +10,7 @@ namespace Syte.Models
         public int Id { set; get; }
         public string Name { set; get; }
         //public string Author { set; get; }
+        public int AuthorID { set; get; }
         public virtual Authors Author { set; get; }
         public string Description { set; get; }
         public string Image { set; get; }
