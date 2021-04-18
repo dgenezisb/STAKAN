@@ -38,6 +38,7 @@ namespace Syte
             services.AddTransient<IAllBooks, BookRepository>();
             services.AddTransient<ICategories, CategoryRepository>();
             services.AddTransient<IAuthors, AuthorsRepository>();
+            services.AddTransient<IPublisher, PublisherRepository>();
             //services.AddTransient<ICompilations, Mock_Compilations>();
             //services.AddTransient<IMyBooks, Mock_MyBooks>();
             //services.AddTransient<IPublisher, Mock_Publisher>();

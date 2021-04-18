@@ -22,7 +22,8 @@ namespace Syte
                         Description = "Приключения Электроника - знаменитая повесть Евгения Велтистова о приключениях Сережи Сыроежкина и его двойника - робота Электроника.",
                         Image = "https://forkids.newbookshop.ru/pictures/1024121942.jpg",
                         IsFavourite = false,
-                        Category = Categories["Научная фантастика"]
+                        Category = Categories["Научная фантастика"],
+                       // Publisher = Publisher["ДЕАН"]
                     },
                     new Book
                     {
@@ -31,7 +32,8 @@ namespace Syte
                         Description = "Рассказ русского писателя Ивана Сергеевича Тургенева, написанный в 1852 году.",
                         Image = "https://productforhomeandgarden.ru/img/1023750205.jpg",
                         IsFavourite = true,
-                        Category = Categories["Детские"]
+                        Category = Categories["Детские"],
+                       // Publisher = Publisher["Десяточка"]
                     },
                     new Book
                     {
@@ -40,7 +42,8 @@ namespace Syte
                         Description = "Книга Бориса Акунина, первый роман из серии о необыкновенном сыщике Эрасте Петровиче Фандорине «Приключения Эраста Фандорина».",
                         Image = "https://productforhomeandgarden.ru/img/1016539304.jpg",
                         IsFavourite = false,
-                        Category = Categories["Детективы"]
+                        Category = Categories["Детективы"],
+                       // Publisher = Publisher["Дрофа"]
                     },
                     new Book
                     {
@@ -49,7 +52,8 @@ namespace Syte
                         Description = "Роман шотландского писателя Роберта Стивенсона о приключениях, связанных с поиском сокровищ, спрятанных капитаном Флинтом на необитаемом острове.",
                         Image = "https://cosmetics.minemegashop.ru/images/1022251489.jpg",
                         IsFavourite = true,
-                        Category = Categories["Приключения"]
+                        Category = Categories["Приключения"],
+                        //Publisher = Publisher["Добрая книга"]
                     }
                 );
         }
@@ -58,6 +62,8 @@ namespace Syte
                 content.Category.AddRange(Categories.Select(c => c.Value));
             if (!content.Authors.Any())
                 content.Authors.AddRange(Authors.Select(c => c.Value));
+            if (!content.Publishers.Any())
+                content.Publishers.AddRange(Publisher.Select(c => c.Value));
 
             content.SaveChanges();
 
@@ -104,6 +110,27 @@ namespace Syte
                         authors.Add(elem.Surname, elem);
                 }
                 return authors;
+            }
+        }    
+        private static Dictionary<string, Publisher> publishers;
+        public static Dictionary<string, Publisher> Publisher
+        {
+            get
+            {
+                if (publishers == null)
+                {
+                    var list = new Publisher[]
+                    {
+                        new Publisher {Name="Десяточка", Description = "Группа компаний «Десяточка»", Commercial=true},
+                        new Publisher {Name="ДЕАН", Description = "Издательство ДЕАН", Commercial=false},
+                        new Publisher {Name="Добрая книга", Description = "«Добрая книга»", Commercial=true},
+                        new Publisher {Name="Дрофа", Description = "«Дрофа»", Commercial=false}
+                    };
+                    publishers = new Dictionary<string, Publisher>();
+                    foreach (Publisher elem in list)
+                        publishers.Add(elem.Name, elem);
+                }
+                return publishers;
             }
         }
     }

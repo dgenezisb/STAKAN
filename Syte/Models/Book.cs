@@ -20,8 +20,10 @@ namespace Syte.Models
         //public virtual Reviews Reviews { set; get; }
         public virtual Category Category { set; get; }
         //public virtual Tags Tags { set; get; }
-        //public int PublisherID { set; get; }
-        //public virtual Publisher Publisher { set; get; }
+        
+        public int PublisherID { set; get; }
+        
+        public virtual Publisher Publisher { set; get; }
         //public virtual Compilations Compilation { set; get; }
 
     }
