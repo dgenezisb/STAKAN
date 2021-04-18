@@ -17,7 +17,8 @@ namespace Syte.Models
         public bool IsFavourite { set; get; }
         public int CategoryID { set; get; }
         //public virtual MyBooks MyBooks { set; get; }
-        //public virtual Reviews Reviews { set; get; }
+        public int ReviewsID { set; get; }
+        public virtual Reviews Reviews { set; get; }
         public virtual Category Category { set; get; }
         //public virtual Tags Tags { set; get; }
         

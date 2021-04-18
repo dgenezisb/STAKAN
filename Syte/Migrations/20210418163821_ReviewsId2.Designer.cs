@@ -9,8 +9,8 @@ using Syte;
 namespace Syte.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20210418163658_Publisher2")]
-    partial class Publisher2
+    [Migration("20210418163821_ReviewsId2")]
+    partial class ReviewsId2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -69,7 +69,7 @@ namespace Syte.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PublisherID")
+                    b.Property<int>("ReviewsID")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -78,7 +78,7 @@ namespace Syte.Migrations
 
                     b.HasIndex("CategoryID");
 
-                    b.HasIndex("PublisherID");
+                    b.HasIndex("ReviewsID");
 
                     b.ToTable("Book");
                 });
@@ -101,25 +101,22 @@ namespace Syte.Migrations
                     b.ToTable("Category");
                 });
 
-            modelBuilder.Entity("Syte.Models.Publisher", b =>
+            modelBuilder.Entity("Syte.Models.Reviews", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<bool>("Commercial")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Description")
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Review")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Publishers");
+                    b.ToTable("Reviews");
                 });
 
             modelBuilder.Entity("Syte.Models.Book", b =>
@@ -136,9 +133,9 @@ namespace Syte.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Syte.Models.Publisher", "Publisher")
-                        .WithMany("Books")
-                        .HasForeignKey("PublisherID")
+                    b.HasOne("Syte.Models.Reviews", "Reviews")
+                        .WithMany()
+                        .HasForeignKey("ReviewsID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -146,7 +143,7 @@ namespace Syte.Migrations
 
                     b.Navigation("Category");
 
-                    b.Navigation("Publisher");
+                    b.Navigation("Reviews");
                 });
 
             modelBuilder.Entity("Syte.Models.Authors", b =>
@@ -155,11 +152,6 @@ namespace Syte.Migrations
                 });
 
             modelBuilder.Entity("Syte.Models.Category", b =>
-                {
-                    b.Navigation("Books");
-                });
-
-            modelBuilder.Entity("Syte.Models.Publisher", b =>
                 {
                     b.Navigation("Books");
                 });

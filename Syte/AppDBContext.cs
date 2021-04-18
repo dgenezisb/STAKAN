@@ -16,8 +16,10 @@ namespace Syte
 
         public DbSet <Book> Book { get; set; }
         public DbSet <Category> Category { get; set; }
-        public DbSet<Publisher> Publishers { get; set; }
+
+        public DbSet<Reviews> Reviews { get; set; }
         public DbSet<Authors> Authors { get; set; }
+
         //public IEnumerable<Tags> Tags { get; internal set; }
     }
 }
