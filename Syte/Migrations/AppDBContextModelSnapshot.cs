@@ -67,7 +67,7 @@ namespace Syte.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ReviewsID")
+                    b.Property<int>("PublisherID")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -76,7 +76,7 @@ namespace Syte.Migrations
 
                     b.HasIndex("CategoryID");
 
-                    b.HasIndex("ReviewsID");
+                    b.HasIndex("PublisherID");
 
                     b.ToTable("Book");
                 });
@@ -99,22 +99,25 @@ namespace Syte.Migrations
                     b.ToTable("Category");
                 });
 
-            modelBuilder.Entity("Syte.Models.Reviews", b =>
+            modelBuilder.Entity("Syte.Models.Publisher", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Name")
+                    b.Property<bool>("Commercial")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Review")
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Reviews");
+                    b.ToTable("Publisher");
                 });
 
             modelBuilder.Entity("Syte.Models.Book", b =>
@@ -131,9 +134,9 @@ namespace Syte.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Syte.Models.Reviews", "Reviews")
-                        .WithMany()
-                        .HasForeignKey("ReviewsID")
+                    b.HasOne("Syte.Models.Publisher", "Publisher")
+                        .WithMany("Books")
+                        .HasForeignKey("PublisherID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -141,7 +144,7 @@ namespace Syte.Migrations
 
                     b.Navigation("Category");
 
-                    b.Navigation("Reviews");
+                    b.Navigation("Publisher");
                 });
 
             modelBuilder.Entity("Syte.Models.Authors", b =>
@@ -150,6 +153,11 @@ namespace Syte.Migrations
                 });
 
             modelBuilder.Entity("Syte.Models.Category", b =>
+                {
+                    b.Navigation("Books");
+                });
+
+            modelBuilder.Entity("Syte.Models.Publisher", b =>
                 {
                     b.Navigation("Books");
                 });

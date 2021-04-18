@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syte", "Syte.csproj", "{FB881FAB-D5C1-4761-8A32-4937D53A7C0D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syte", "Syte.csproj", "{C3B80F6A-FE0B-4584-9CAD-52CBA5D19D94}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FB881FAB-D5C1-4761-8A32-4937D53A7C0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FB881FAB-D5C1-4761-8A32-4937D53A7C0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FB881FAB-D5C1-4761-8A32-4937D53A7C0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FB881FAB-D5C1-4761-8A32-4937D53A7C0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3B80F6A-FE0B-4584-9CAD-52CBA5D19D94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3B80F6A-FE0B-4584-9CAD-52CBA5D19D94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3B80F6A-FE0B-4584-9CAD-52CBA5D19D94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3B80F6A-FE0B-4584-9CAD-52CBA5D19D94}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {A953CA3A-306B-4A81-A8B3-2838832DF741}
+		SolutionGuid = {9B934696-AB21-48B3-8941-90D6E6785031}
 	EndGlobalSection
 EndGlobal
