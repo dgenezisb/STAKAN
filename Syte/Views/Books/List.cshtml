@@ -1,0 +1,24 @@
+﻿<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>List</title>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <h1>Все книги</h1>
+    <h3>@Model.CurrentCategory</h3>
+    <div class = "row mt-5 mb-2">
+        @{ 
+            foreach (var book in Model.AllBooks)
+            {
+        <div class="col-lg-4">
+            <img class= "img-thumbnail" src="@book.Image" alt="@book.Name"/>
+            <h2>@book.Name</h2>
+            <h5>@book.Author</h5>
+            <p>@book.Description</p>
+            <p><a class="btn btn-warning" href="#">Подробнее</a></p>
+        </div>
+            }
+        }
+    </div>
+    <script scr="~/js/bootstrap.min.js"></script>
+</body>

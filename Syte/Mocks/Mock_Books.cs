@@ -9,7 +9,7 @@ namespace Syte.Mocks
 {
     public class Mock_Books : IAllBooks
     {
-        private readonly IBooksCategories _categoryBooks = new Mock_Category();
+        private readonly ICategories _categoryBooks = new Mock_Category();
         public IEnumerable<Book> Books 
         {
             get
@@ -25,7 +25,8 @@ namespace Syte.Mocks
                     new Book{Name = "Муму", 
                              Author="Иван Тургенев",
                              Description = "Рассказ русского писателя Ивана Сергеевича Тургенева, написанный в 1852 году.",
-                             Image = "https://productforhomeandgarden.ru/img/1023750205.jpg",IsFavourite = true, 
+                             Image = "https://productforhomeandgarden.ru/img/1023750205.jpg",
+                             IsFavourite = true, 
                              Category= _categoryBooks.ListofCategories.ElementAt(0)},
                     new Book{Name = "Азазазель", 
                              Author="Борис Акунин" , 
