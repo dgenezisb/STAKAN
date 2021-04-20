@@ -23,7 +23,7 @@ namespace Syte
                         Image = "https://forkids.newbookshop.ru/pictures/1024121942.jpg",
                         IsFavourite = false,
                         Category = Categories["Научная фантастика"],
-                        Reviews= Reviews["Петя"]
+                        //Reviews= Reviews["Петя"]
                     },
                     new Book
                     {
@@ -33,7 +33,7 @@ namespace Syte
                         Image = "https://productforhomeandgarden.ru/img/1023750205.jpg",
                         IsFavourite = true,
                         Category = Categories["Детские"],
-                        Reviews = Reviews["Вася"]
+                        //Reviews = Reviews["Вася"]
                     },
                     new Book
                     {
@@ -43,7 +43,7 @@ namespace Syte
                         Image = "https://productforhomeandgarden.ru/img/1016539304.jpg",
                         IsFavourite = false,
                         Category = Categories["Детективы"],
-                        Reviews = Reviews["Игорь"]
+                        //Reviews = Reviews["Игорь"]
                     },
                     new Book
                     {
@@ -53,7 +53,7 @@ namespace Syte
                         Image = "https://cosmetics.minemegashop.ru/images/1022251489.jpg",
                         IsFavourite = true,
                         Category = Categories["Приключения"],
-                        Reviews = Reviews["Ваня"]
+                        //Reviews = Reviews["Ваня"]
                     }
                 );
         }

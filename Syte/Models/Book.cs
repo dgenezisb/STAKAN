@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -7,6 +9,8 @@ namespace Syte.Models
 {
     public class Book              //Параметры книги
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { set; get; }
         public string Name { set; get; }
         //public string Author { set; get; }
@@ -17,8 +21,9 @@ namespace Syte.Models
         public bool IsFavourite { set; get; }
         public int CategoryID { set; get; }
         //public virtual MyBooks MyBooks { set; get; }
-        public int ReviewsID { set; get; }
-        public virtual Reviews Reviews { set; get; }
+        //public int ReviewsID { set; get; }
+        
+        //public virtual Reviews Reviews { set; get; }
         public virtual Category Category { set; get; }
         //public virtual Tags Tags { set; get; }
         //public int PublisherID { set; get; }

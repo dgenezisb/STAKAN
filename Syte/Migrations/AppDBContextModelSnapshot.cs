@@ -67,16 +67,11 @@ namespace Syte.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ReviewsID")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("AuthorID");
 
                     b.HasIndex("CategoryID");
-
-                    b.HasIndex("ReviewsID");
 
                     b.ToTable("Book");
                 });
@@ -106,13 +101,21 @@ namespace Syte.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("BookId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NameOfBook")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Review")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BookId");
 
                     b.ToTable("Reviews");
                 });
@@ -131,17 +134,20 @@ namespace Syte.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Syte.Models.Reviews", "Reviews")
-                        .WithMany()
-                        .HasForeignKey("ReviewsID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Author");
 
                     b.Navigation("Category");
+                });
 
-                    b.Navigation("Reviews");
+            modelBuilder.Entity("Syte.Models.Reviews", b =>
+                {
+                    b.HasOne("Syte.Models.Book", "Book")
+                        .WithMany()
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
                 });
 
             modelBuilder.Entity("Syte.Models.Authors", b =>

@@ -2,7 +2,7 @@
 
 namespace Syte.Migrations
 {
-    public partial class ReviewsId2 : Migration
+    public partial class review2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
