@@ -67,11 +67,21 @@ namespace Syte.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("PublisherID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ReviewsID")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("AuthorID");
 
                     b.HasIndex("CategoryID");
+
+                    b.HasIndex("PublisherID");
+
+                    b.HasIndex("ReviewsID");
 
                     b.ToTable("Book");
                 });
@@ -94,6 +104,27 @@ namespace Syte.Migrations
                     b.ToTable("Category");
                 });
 
+            modelBuilder.Entity("Syte.Models.Publisher", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("Commercial")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Publisher");
+                });
+
             modelBuilder.Entity("Syte.Models.Reviews", b =>
                 {
                     b.Property<int>("Id")
@@ -101,21 +132,13 @@ namespace Syte.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("BookId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NameOfBook")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Review")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("BookId");
 
                     b.ToTable("Reviews");
                 });
@@ -134,20 +157,25 @@ namespace Syte.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Author");
-
-                    b.Navigation("Category");
-                });
-
-            modelBuilder.Entity("Syte.Models.Reviews", b =>
-                {
-                    b.HasOne("Syte.Models.Book", "Book")
-                        .WithMany()
-                        .HasForeignKey("BookId")
+                    b.HasOne("Syte.Models.Publisher", "Publisher")
+                        .WithMany("Books")
+                        .HasForeignKey("PublisherID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Book");
+                    b.HasOne("Syte.Models.Reviews", "Reviews")
+                        .WithMany()
+                        .HasForeignKey("ReviewsID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Author");
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Publisher");
+
+                    b.Navigation("Reviews");
                 });
 
             modelBuilder.Entity("Syte.Models.Authors", b =>
@@ -156,6 +184,11 @@ namespace Syte.Migrations
                 });
 
             modelBuilder.Entity("Syte.Models.Category", b =>
+                {
+                    b.Navigation("Books");
+                });
+
+            modelBuilder.Entity("Syte.Models.Publisher", b =>
                 {
                     b.Navigation("Books");
                 });

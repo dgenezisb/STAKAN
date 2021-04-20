@@ -23,6 +23,7 @@ namespace Syte
                         Image = "https://forkids.newbookshop.ru/pictures/1024121942.jpg",
                         IsFavourite = false,
                         Category = Categories["Научная фантастика"],
+                        Publisher = Publisher["Добрая книга"]
                         //Reviews= Reviews["Петя"]
                     },
                     new Book
@@ -33,6 +34,7 @@ namespace Syte
                         Image = "https://productforhomeandgarden.ru/img/1023750205.jpg",
                         IsFavourite = true,
                         Category = Categories["Детские"],
+                        Publisher = Publisher["ДЕАН"]
                         //Reviews = Reviews["Вася"]
                     },
                     new Book
@@ -43,6 +45,7 @@ namespace Syte
                         Image = "https://productforhomeandgarden.ru/img/1016539304.jpg",
                         IsFavourite = false,
                         Category = Categories["Детективы"],
+                        Publisher = Publisher["Дрофа"]
                         //Reviews = Reviews["Игорь"]
                     },
                     new Book
@@ -53,18 +56,20 @@ namespace Syte
                         Image = "https://cosmetics.minemegashop.ru/images/1022251489.jpg",
                         IsFavourite = true,
                         Category = Categories["Приключения"],
+                        Publisher = Publisher["Десяточка"]
                         //Reviews = Reviews["Ваня"]
                     }
                 );
-        }
+            }
 
             if (!content.Category.Any())
                 content.Category.AddRange(Categories.Select(c => c.Value));
             if (!content.Authors.Any())
                 content.Authors.AddRange(Authors.Select(c => c.Value));
-            if (!content.Reviews.Any())
-                content.Reviews.AddRange(Reviews.Select(c => c.Value));
-
+            //if (!content.Reviews.Any())
+            //    content.Reviews.AddRange(Reviews.Select(c => c.Value));
+            if (!content.Publisher.Any())
+                content.Publisher.AddRange(Publisher.Select(c => c.Value));
             content.SaveChanges();
 
         }
@@ -114,27 +119,49 @@ namespace Syte
         }
 
 
-        private static Dictionary<string, Reviews> review;
-        public static Dictionary<string, Reviews> Reviews
+        //private static Dictionary<string, Reviews> review;
+        //public static Dictionary<string, Reviews> Reviews
+        //{
+        //    get
+        //    {
+        //        if (review == null)
+        //        {
+        //            var list = new Reviews[]
+        //            {
+        //                new Reviews {Name = "Петя", Review="Реценция 1",},
+        //                new Reviews {Name = "Вася",Review="Реценция 2",},
+        //                new Reviews {Name = "Игорь", Review="Реценция 3"},
+        //                new Reviews {Name = "Ваня", Review="Реценция 4"}
+        //            };
+        //            review = new Dictionary<string, Reviews>();
+        //            foreach (Reviews elem in list)
+        //                review.Add(elem.Name, elem);
+        //        }
+        //        return review;
+        //    }
+        //}
+        private static Dictionary<string, Publisher> publishers;
+        public static Dictionary<string, Publisher> Publisher
         {
             get
             {
-                if (review == null)
+                if (publishers == null)
                 {
-                    var list = new Reviews[]
+                    var list = new Publisher[]
                     {
-                        new Reviews {Name = "Петя", Review="Реценция 1",},
-                        new Reviews {Name = "Вася",Review="Реценция 2",},
-                        new Reviews {Name = "Игорь", Review="Реценция 3"},
-                        new Reviews {Name = "Ваня", Review="Реценция 4"}
+                        new Publisher {Name="Десяточка", Description = "Группа компаний «Десяточка»", Commercial=true},
+                        new Publisher {Name="ДЕАН", Description = "Издательство ДЕАН", Commercial=false},
+                        new Publisher {Name="Добрая книга", Description = "«Добрая книга»", Commercial=true},
+                        new Publisher {Name="Дрофа", Description = "«Дрофа»", Commercial=false}
                     };
-                    review = new Dictionary<string, Reviews>();
-                    foreach (Reviews elem in list)
-                        review.Add(elem.Name, elem);
+                    publishers = new Dictionary<string, Publisher>();
+                    foreach (Publisher elem in list)
+                        publishers.Add(elem.Name, elem);
                 }
-                return review;
+                return publishers;
             }
         }
+    }
 
     }
-}
+

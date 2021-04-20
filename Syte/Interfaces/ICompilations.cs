@@ -8,6 +8,6 @@
 //{
 //    public interface ICompilations
 //    {
-//        IEnumerable<Compilations> ListofCompilations{ get; } //Функция получает список всех подборок
+//        IEnumerable<Compilations> ListofCompilations { get; } //Функция получает список всех подборок
 //    }
 //}
