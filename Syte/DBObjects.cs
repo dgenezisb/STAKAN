@@ -23,8 +23,7 @@ namespace Syte
                         Image = "https://forkids.newbookshop.ru/pictures/1024121942.jpg",
                         IsFavourite = false,
                         Category = Categories["Научная фантастика"],
-                        Publisher = Publisher["Добрая книга"]
-                        //Reviews= Reviews["Петя"]
+                        Reviews= Reviews["Петя"]
                     },
                     new Book
                     {
@@ -34,8 +33,7 @@ namespace Syte
                         Image = "https://productforhomeandgarden.ru/img/1023750205.jpg",
                         IsFavourite = true,
                         Category = Categories["Детские"],
-                        Publisher = Publisher["ДЕАН"]
-                        //Reviews = Reviews["Вася"]
+                        Reviews = Reviews["Вася"]
                     },
                     new Book
                     {
@@ -45,8 +43,7 @@ namespace Syte
                         Image = "https://productforhomeandgarden.ru/img/1016539304.jpg",
                         IsFavourite = false,
                         Category = Categories["Детективы"],
-                        Publisher = Publisher["Дрофа"]
-                        //Reviews = Reviews["Игорь"]
+                        Reviews = Reviews["Игорь"]
                     },
                     new Book
                     {
@@ -56,11 +53,10 @@ namespace Syte
                         Image = "https://cosmetics.minemegashop.ru/images/1022251489.jpg",
                         IsFavourite = true,
                         Category = Categories["Приключения"],
-                        Publisher = Publisher["Десяточка"]
-                        //Reviews = Reviews["Ваня"]
+                        Reviews = Reviews["Ваня"]
                     }
                 );
-            }
+        }
 
             if (!content.Category.Any())
                 content.Category.AddRange(Categories.Select(c => c.Value));
