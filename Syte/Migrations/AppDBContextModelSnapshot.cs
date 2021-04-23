@@ -18,6 +18,21 @@ namespace Syte.Migrations
                 .HasAnnotation("ProductVersion", "5.0.5")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("BookTags", b =>
+                {
+                    b.Property<int>("BooksId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TagId")
+                        .HasColumnType("int");
+
+                    b.HasKey("BooksId", "TagId");
+
+                    b.HasIndex("TagId");
+
+                    b.ToTable("BookTags");
+                });
+
             modelBuilder.Entity("Syte.Models.Authors", b =>
                 {
                     b.Property<int>("Id")
@@ -70,9 +85,6 @@ namespace Syte.Migrations
                     b.Property<int>("PublisherID")
                         .HasColumnType("int");
 
-                    b.Property<int>("ReviewsID")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("AuthorID");
@@ -80,8 +92,6 @@ namespace Syte.Migrations
                     b.HasIndex("CategoryID");
 
                     b.HasIndex("PublisherID");
-
-                    b.HasIndex("ReviewsID");
 
                     b.ToTable("Book");
                 });
@@ -132,6 +142,9 @@ namespace Syte.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("BookID")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -140,7 +153,39 @@ namespace Syte.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("BookID");
+
                     b.ToTable("Reviews");
+                });
+
+            modelBuilder.Entity("Syte.Models.Tags", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Tags");
+                });
+
+            modelBuilder.Entity("BookTags", b =>
+                {
+                    b.HasOne("Syte.Models.Book", null)
+                        .WithMany()
+                        .HasForeignKey("BooksId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Syte.Models.Tags", null)
+                        .WithMany()
+                        .HasForeignKey("TagId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Syte.Models.Book", b =>
@@ -163,24 +208,32 @@ namespace Syte.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Syte.Models.Reviews", "Reviews")
-                        .WithMany()
-                        .HasForeignKey("ReviewsID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Author");
 
                     b.Navigation("Category");
 
                     b.Navigation("Publisher");
+                });
 
-                    b.Navigation("Reviews");
+            modelBuilder.Entity("Syte.Models.Reviews", b =>
+                {
+                    b.HasOne("Syte.Models.Book", "Book")
+                        .WithMany("Reviews")
+                        .HasForeignKey("BookID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
                 });
 
             modelBuilder.Entity("Syte.Models.Authors", b =>
                 {
                     b.Navigation("Books");
+                });
+
+            modelBuilder.Entity("Syte.Models.Book", b =>
+                {
+                    b.Navigation("Reviews");
                 });
 
             modelBuilder.Entity("Syte.Models.Category", b =>
