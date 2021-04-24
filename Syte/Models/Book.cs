@@ -24,15 +24,13 @@ namespace Syte.Models
         [ForeignKey(nameof(CategoryID))]
         public virtual Category Category { set; get; }
         //public virtual Tags Tags { set; get; }
-        public ICollection<Tags> Tag{ get; set; }
-        public Book()
-        {
-            Tag = new List<Tags>();
-        }
+        public List<Tags> Tags { get; set; } = new List<Tags>();
         public int PublisherID { set; get; }
         [ForeignKey(nameof(PublisherID))]
         public virtual Publisher Publisher { set; get; }
-        //public virtual Compilations Compilation { set; get; }
         public List<Reviews> Reviews { set; get; }
+        public int CompilationID { set; get; }
+        [ForeignKey(nameof(CompilationID))]
+        public virtual Compilations Compilation { set; get; }
     }
 }

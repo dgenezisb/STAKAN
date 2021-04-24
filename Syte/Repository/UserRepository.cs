@@ -7,13 +7,13 @@ using Syte.Models;
 
 namespace Syte.Repository
 {
-    public class CompilationsRepository : ICompilations
+    public class UserRepository : IUser
     {
         private readonly AppDBContext appDBContent;
-        public CompilationsRepository(AppDBContext appDBContent)
+        public UserRepository(AppDBContext appDBContent)
         {
             this.appDBContent = appDBContent;
         }
-        public IEnumerable<Compilations> ListofCompilations => appDBContent.Compilation;
+        public IEnumerable<User> ListofUser => appDBContent.User;
     }
 }
