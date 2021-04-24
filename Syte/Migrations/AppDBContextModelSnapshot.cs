@@ -23,12 +23,12 @@ namespace Syte.Migrations
                     b.Property<int>("BooksId")
                         .HasColumnType("int");
 
-                    b.Property<int>("TagId")
+                    b.Property<int>("TagsId")
                         .HasColumnType("int");
 
-                    b.HasKey("BooksId", "TagId");
+                    b.HasKey("BooksId", "TagsId");
 
-                    b.HasIndex("TagId");
+                    b.HasIndex("TagsId");
 
                     b.ToTable("BookTags");
                 });
@@ -70,6 +70,9 @@ namespace Syte.Migrations
                     b.Property<int>("CategoryID")
                         .HasColumnType("int");
 
+                    b.Property<int>("CompilationID")
+                        .HasColumnType("int");
+
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
@@ -90,6 +93,8 @@ namespace Syte.Migrations
                     b.HasIndex("AuthorID");
 
                     b.HasIndex("CategoryID");
+
+                    b.HasIndex("CompilationID");
 
                     b.HasIndex("PublisherID");
 
@@ -112,6 +117,44 @@ namespace Syte.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Category");
+                });
+
+            modelBuilder.Entity("Syte.Models.Compilations", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Desc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Compilation");
+                });
+
+            modelBuilder.Entity("Syte.Models.MyBooks", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserID")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserID");
+
+                    b.ToTable("MyBooks");
                 });
 
             modelBuilder.Entity("Syte.Models.Publisher", b =>
@@ -173,6 +216,24 @@ namespace Syte.Migrations
                     b.ToTable("Tags");
                 });
 
+            modelBuilder.Entity("Syte.Models.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Age")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("User");
+                });
+
             modelBuilder.Entity("BookTags", b =>
                 {
                     b.HasOne("Syte.Models.Book", null)
@@ -183,7 +244,7 @@ namespace Syte.Migrations
 
                     b.HasOne("Syte.Models.Tags", null)
                         .WithMany()
-                        .HasForeignKey("TagId")
+                        .HasForeignKey("TagsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -202,6 +263,12 @@ namespace Syte.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Syte.Models.Compilations", "Compilation")
+                        .WithMany("Books")
+                        .HasForeignKey("CompilationID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Syte.Models.Publisher", "Publisher")
                         .WithMany("Books")
                         .HasForeignKey("PublisherID")
@@ -212,7 +279,20 @@ namespace Syte.Migrations
 
                     b.Navigation("Category");
 
+                    b.Navigation("Compilation");
+
                     b.Navigation("Publisher");
+                });
+
+            modelBuilder.Entity("Syte.Models.MyBooks", b =>
+                {
+                    b.HasOne("Syte.Models.User", "User")
+                        .WithMany("MyBooks")
+                        .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Syte.Models.Reviews", b =>
@@ -241,9 +321,19 @@ namespace Syte.Migrations
                     b.Navigation("Books");
                 });
 
+            modelBuilder.Entity("Syte.Models.Compilations", b =>
+                {
+                    b.Navigation("Books");
+                });
+
             modelBuilder.Entity("Syte.Models.Publisher", b =>
                 {
                     b.Navigation("Books");
+                });
+
+            modelBuilder.Entity("Syte.Models.User", b =>
+                {
+                    b.Navigation("MyBooks");
                 });
 #pragma warning restore 612, 618
         }

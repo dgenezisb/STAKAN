@@ -22,6 +22,13 @@ namespace Syte
                 content.Reviews.AddRange(Reviews.Select(c => c.Value));
             if (!content.Publisher.Any())
                 content.Publisher.AddRange(Publisher.Select(c => c.Value));
+            if (!content.Compilation.Any())
+                content.Compilation.AddRange(Compilations.Select(c => c.Value));
+            if (!content.MyBooks.Any())
+                content.MyBooks.AddRange(MyBooks.Select(c => c.Value));
+            if (!content.User.Any())
+                content.User.AddRange(User.Select(c => c.Value));
+            BookTags();
             content.SaveChanges();
         }
         private static Dictionary<string, Book> book;
@@ -41,7 +48,8 @@ namespace Syte
                             Image = "https://forkids.newbookshop.ru/pictures/1024121942.jpg",
                             IsFavourite = false,
                             Category = Categories["Научная фантастика"],
-                            Publisher = Publisher["Добрая книга"]
+                            Publisher = Publisher["Добрая книга"],
+                            Compilation = Compilations["Детские книги"]
                         },
                         new Book
                         {
@@ -51,7 +59,8 @@ namespace Syte
                             Image = "https://productforhomeandgarden.ru/img/1023750205.jpg",
                             IsFavourite = true,
                             Category = Categories["Детские"],
-                            Publisher = Publisher["Дрофа"]
+                            Publisher = Publisher["Дрофа"],
+                            Compilation = Compilations["Детские книги"]
                         },
                         new Book
                         {
@@ -61,7 +70,8 @@ namespace Syte
                             Image = "https://productforhomeandgarden.ru/img/1016539304.jpg",
                             IsFavourite = false,
                             Category = Categories["Детективы"],
-                            Publisher = Publisher["ДЕАН"]
+                            Publisher = Publisher["ДЕАН"],
+                            Compilation = Compilations["Детские книги"]
                         },
                         new Book
                         {
@@ -71,7 +81,8 @@ namespace Syte
                             Image = "https://cosmetics.minemegashop.ru/images/1022251489.jpg",
                             IsFavourite = true,
                             Category = Categories["Приключения"],
-                            Publisher = Publisher["Десяточка"]
+                            Publisher = Publisher["Десяточка"],
+                            Compilation = Compilations["Детские книги"]
                         }
                     };
                     book = new Dictionary<string, Book>();
@@ -170,6 +181,90 @@ namespace Syte
                 return publishers;
             }
         }
-    }
 
+        private static Dictionary<string, Compilations> compilation;
+        public static Dictionary<string, Compilations> Compilations
+        {
+            get
+            {
+                if (compilation == null)
+                {
+                    var list = new Compilations[]
+                    {
+                         new Compilations {Name = "Детские книги", Desc="Книги для детей всех возрастов"}
+                    };
+                    compilation = new Dictionary<string, Compilations>();
+                    foreach (Compilations elem in list)
+                        compilation.Add(elem.Name, elem);
+                }
+                return compilation;
+            }
+        }
+
+        private static Dictionary<string, User> user;
+        public static Dictionary<string, User> User
+        {
+            get
+            {
+                if (user == null)
+                {
+                    var list = new User[]
+                    {
+                         new User {Name = "Читатель",Age=21 },
+                         new User {Name = "Модератор", Age=40}
+                    };
+                    user = new Dictionary<string, User>();
+                    foreach (User elem in list)
+                        user.Add(elem.Name, elem);
+                }
+                return user;
+            }
+        }
+
+        private static Dictionary<string, MyBooks> mybooks;
+        public static Dictionary<string, MyBooks> MyBooks
+        {
+            get
+            {
+                if (mybooks == null)
+                {
+                    var list = new MyBooks[]
+                    {
+                         new MyBooks {Name = "Моя любимая книга", User = User["Читатель"]}
+                    };
+                    mybooks = new Dictionary<string, MyBooks>();
+                    foreach (MyBooks elem in list)
+                        mybooks.Add(elem.Name, elem);
+                }
+                return mybooks;
+            }
+        }
+
+        private static Dictionary<string, Tags> tag;
+        public static Dictionary<string, Tags> Tags
+        {
+            get
+            {
+                if (tag == null)
+                {
+                    var list = new Tags[]
+                    {
+                        new Tags {Name = "крутое"},
+                        new Tags {Name = "грустное"}
+                    };
+                    tag = new Dictionary<string, Tags>();
+                    foreach (Tags elem in list)
+                        tag.Add(elem.Name, elem);
+                }
+                return tag;
+            }
+        }
+        public static void BookTags()
+        {
+            Tags["грустное"].Books.Add(Books["Муму"]);
+            Tags["грустное"].Books.Add(Books["Азазель"]);
+            Tags["крутое"].Books.Add(Books["Приключения электроника"]);
+            Tags["крутое"].Books.Add(Books["Остров сокровищ"]);
+        }
+    }
 }
