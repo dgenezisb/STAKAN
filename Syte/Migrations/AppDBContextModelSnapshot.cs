@@ -18,6 +18,21 @@ namespace Syte.Migrations
                 .HasAnnotation("ProductVersion", "5.0.5")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("BookMyBooks", b =>
+                {
+                    b.Property<int>("BooksId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MyBooksId")
+                        .HasColumnType("int");
+
+                    b.HasKey("BooksId", "MyBooksId");
+
+                    b.HasIndex("MyBooksId");
+
+                    b.ToTable("BookMyBooks");
+                });
+
             modelBuilder.Entity("BookTags", b =>
                 {
                     b.Property<int>("BooksId")
@@ -232,6 +247,21 @@ namespace Syte.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("User");
+                });
+
+            modelBuilder.Entity("BookMyBooks", b =>
+                {
+                    b.HasOne("Syte.Models.Book", null)
+                        .WithMany()
+                        .HasForeignKey("BooksId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Syte.Models.MyBooks", null)
+                        .WithMany()
+                        .HasForeignKey("MyBooksId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("BookTags", b =>

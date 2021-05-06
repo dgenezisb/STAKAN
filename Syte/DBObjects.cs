@@ -28,7 +28,10 @@ namespace Syte
                 content.MyBooks.AddRange(MyBooks.Select(c => c.Value));
             if (!content.User.Any())
                 content.User.AddRange(User.Select(c => c.Value));
+            if (!content.Tags.Any())
+                content.Tags.AddRange(Tags.Select(c => c.Value));
             BookTags();
+            BookMyBook();
             content.SaveChanges();
         }
         private static Dictionary<string, Book> book;
@@ -265,6 +268,13 @@ namespace Syte
             Tags["грустное"].Books.Add(Books["Азазель"]);
             Tags["крутое"].Books.Add(Books["Приключения электроника"]);
             Tags["крутое"].Books.Add(Books["Остров сокровищ"]);
+        }
+
+        public static void BookMyBook()
+        {
+            MyBooks["Моя любимая книга"].Books.Add(Books["Муму"]);
+            MyBooks["Моя любимая книга"].Books.Add(Books["Приключения электроника"]);
+           
         }
     }
 }
