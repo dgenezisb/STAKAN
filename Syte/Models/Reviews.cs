@@ -17,6 +17,5 @@ namespace Syte.Models
         public int BookID { set; get; }
         [ForeignKey(nameof(BookID))]
         public virtual Book Book { set; get; }
-
     }
 }

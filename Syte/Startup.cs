@@ -39,12 +39,11 @@ namespace Syte
             services.AddTransient<ICategories, CategoryRepository>();
             services.AddTransient<IAuthors, AuthorsRepository>();
             services.AddTransient<IPublisher, PublisherRepository>();
-            //services.AddTransient<ICompilations, Mock_Compilations>();
-            //services.AddTransient<IMyBooks, Mock_MyBooks>();
-            //services.AddTransient<IPublisher, Mock_Publisher>();
-            //services.AddTransient<IReviews, ReviewsRepository>();
-            //services.AddTransient<ITags, Mock_Tags>();
-            //services.AddTransient<IUser, Mock_User>();
+            services.AddTransient<ICompilations, CompilationsRepository>();
+            services.AddTransient<IMyBooks, MyBookRepository>();
+            services.AddTransient<IReviews, ReviewsRepository>();
+            services.AddTransient<ITags, TagsRepository>();
+            services.AddTransient<IUser, UserRepository>();
             services.AddControllersWithViews();
         }
 
