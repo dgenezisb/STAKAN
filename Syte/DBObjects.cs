@@ -119,27 +119,27 @@ namespace Syte
         }
 
 
-        //private static Dictionary<string, Reviews> review;
-        //public static Dictionary<string, Reviews> Reviews
-        //{
-        //    get
-        //    {
-        //        if (review == null)
-        //        {
-        //            var list = new Reviews[]
-        //            {
-        //                new Reviews {Name = "Петя", Review="Реценция 1",},
-        //                new Reviews {Name = "Вася",Review="Реценция 2",},
-        //                new Reviews {Name = "Игорь", Review="Реценция 3"},
-        //                new Reviews {Name = "Ваня", Review="Реценция 4"}
-        //            };
-        //            review = new Dictionary<string, Reviews>();
-        //            foreach (Reviews elem in list)
-        //                review.Add(elem.Name, elem);
-        //        }
-        //        return review;
-        //    }
-        //}
+        private static Dictionary<string, Reviews> review;
+        public static Dictionary<string, Reviews> Reviews
+        {
+            get
+            {
+                if (review == null)
+                {
+                    var list = new Reviews[]
+                    {
+                        new Reviews {Name = "Петя", Review="Реценция 1",},
+                        new Reviews {Name = "Вася",Review="Реценция 2",},
+                        new Reviews {Name = "Игорь", Review="Реценция 3"},
+                        new Reviews {Name = "Ваня", Review="Реценция 4"}
+                    };
+                    review = new Dictionary<string, Reviews>();
+                    foreach (Reviews elem in list)
+                        review.Add(elem.Name, elem);
+                }
+                return review;
+            }
+        }
         private static Dictionary<string, Publisher> publishers;
         public static Dictionary<string, Publisher> Publisher
         {
