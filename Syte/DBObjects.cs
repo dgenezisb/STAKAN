@@ -28,7 +28,7 @@ namespace Syte
                 content.MyBooks.AddRange(MyBooks.Select(c => c.Value));
             if (!content.User.Any())
                 content.User.AddRange(User.Select(c => c.Value));
-            BookTags();
+            //BookTags();
             content.SaveChanges();
         }
         private static Dictionary<string, Book> book;
@@ -249,8 +249,8 @@ namespace Syte
                 {
                     var list = new Tags[]
                     {
-                        new Tags {Name = "крутое"},
-                        new Tags {Name = "грустное"}
+                        new Tags(Guid.NewGuid(), "крутое", Books["Приключения электроника"], Books["Остров сокровищ"]),
+                        new Tags(Guid.NewGuid(), "грустное", Books["Муму"], Books["Азазель"]),
                     };
                     tag = new Dictionary<string, Tags>();
                     foreach (Tags elem in list)
@@ -259,12 +259,12 @@ namespace Syte
                 return tag;
             }
         }
-        public static void BookTags()
-        {
-            Tags["грустное"].Books.Add(Books["Муму"]);
-            Tags["грустное"].Books.Add(Books["Азазель"]);
-            Tags["крутое"].Books.Add(Books["Приключения электроника"]);
-            Tags["крутое"].Books.Add(Books["Остров сокровищ"]);
-        }
+        //public static void BookTags()
+        //{
+        //    Tags["грустное"].Books.Add(Books["Муму"]);
+        //    Tags["грустное"].Books.Add(Books["Азазель"]);
+        //    Tags["крутое"].Books.Add(Books["Приключения электроника"]);
+        //    Tags["крутое"].Books.Add(Books["Остров сокровищ"]);
+        //}
     }
 }
