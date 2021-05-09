@@ -213,8 +213,8 @@ namespace Syte
                 {
                     var list = new User[]
                     {
-                         new User {Name = "Читатель",Age=21 },
-                         new User {Name = "Модератор", Age=40}
+                         new User {Name = "Читатель" },
+                         new User {Name = "Модератор" }
                     };
                     user = new Dictionary<string, User>();
                     foreach (User elem in list)

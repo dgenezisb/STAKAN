@@ -8,6 +8,6 @@ namespace Syte.Interfaces
 {
     public interface IUser
     {
-        IEnumerable<User> ListofUser { get; } //Функция получает список всех авторов
+        IEnumerable<User> ListofUser { get; } //Функция получает список всех пользователей
     }
 }
