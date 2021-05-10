@@ -119,7 +119,7 @@ namespace Syte
             }
         }
 
-        public static Dictionary<string, Authors> authors;
+        private static Dictionary<string, Authors> authors;
         public static Dictionary<string, Authors> Authors
         {
             get

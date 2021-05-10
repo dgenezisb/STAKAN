@@ -16,15 +16,19 @@ namespace Syte.Controllers
         private readonly IAllBooks _allBooks;
         private readonly ICategories _allCategories;
         private readonly IAuthors _allAuthors;
-        private AppDBContext db;
+        private readonly IPublisher _allPublishers;
+        private readonly ICompilations _allCompilations;
+        private AppDBContext db = new AppDBContext(); 
 
 
 
-        public BooksController(IAllBooks IAllBooks, ICategories IBooksCategories, IAuthors IAllAuthors)
+        public BooksController(IAllBooks IAllBooks, ICategories IBooksCategories, IAuthors IAllAuthors, IPublisher IAllPublishers,ICompilations IAllCompilations)
         {
             _allBooks = IAllBooks;
             _allCategories = IBooksCategories;
             _allAuthors = IAllAuthors;
+            _allPublishers = IAllPublishers;
+            _allCompilations = IAllCompilations;
         }
 
         public ViewResult List()
@@ -38,30 +42,36 @@ namespace Syte.Controllers
         public ActionResult Create()
         {
             Book book = new Book();
-            ViewBag.Authors = new SelectList(DBObjects.Authors);
-            ViewBag.Publisher = new SelectList(DBObjects.Publisher);
-            ViewBag.Categories = new SelectList(DBObjects.Categories);
-            ViewBag.Compilations = new SelectList(DBObjects.Compilations);
+            ViewBag.Authors = new SelectList(_allAuthors.ListofAuthors,"Id", "Surname");
+            ViewBag.Categories = new SelectList(_allCategories.ListofCategories, "Id", "CategoryName");
+            ViewBag.Publisher = new SelectList(_allPublishers.ListofPublishers,"Id","Name");
+            ViewBag.Compilations = new SelectList(_allCompilations.ListofCompilations,"Id","Name");
             return View(book);
         }
         [HttpPost]
         public ActionResult Create(Book book)
         {
-            try
+            if (string.IsNullOrEmpty(book.Name))
             {
-                if (ModelState.IsValid)
-                {
-                    db.Book.Add(book);
-                    db.SaveChanges();
-                    return RedirectToAction("List");
-                }
-            
+                ModelState.AddModelError("Name", "Некорректное название книги");
             }
-            catch(Exception exeption)
+            else if (book.Name.Length > 5)
             {
-                //ModelState.AddModelError(String.Empty, exeption);
+                ModelState.AddModelError("Name", "Недопустимая длина строки");
             }
+
+            if (ModelState.IsValid)
+            {
+                ViewBag.Message = "Валидация пройдена";
+                
+                db.Book.Add(book);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.Message = "Запрос не прошел валидацию";
             return View(book);
+            
         }
 
 
