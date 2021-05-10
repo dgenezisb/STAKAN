@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,13 +15,18 @@ namespace Syte.Controllers
     {
         private readonly IAllBooks _allBooks;
         private readonly ICategories _allCategories;
+        private readonly IAuthors _allAuthors;
         private AppDBContext db;
 
-        public BooksController(IAllBooks IAllBooks, ICategories IBooksCategories)
+
+
+        public BooksController(IAllBooks IAllBooks, ICategories IBooksCategories, IAuthors IAllAuthors)
         {
             _allBooks = IAllBooks;
             _allCategories = IBooksCategories;
+            _allAuthors = IAllAuthors;
         }
+
         public ViewResult List()
         {
             ViewBag.Title = "Наши книги";
@@ -32,6 +38,10 @@ namespace Syte.Controllers
         public ActionResult Create()
         {
             Book book = new Book();
+            ViewBag.Authors = new SelectList(DBObjects.Authors);
+            ViewBag.Publisher = new SelectList(DBObjects.Publisher);
+            ViewBag.Categories = new SelectList(DBObjects.Categories);
+            ViewBag.Compilations = new SelectList(DBObjects.Compilations);
             return View(book);
         }
         [HttpPost]
@@ -47,9 +57,9 @@ namespace Syte.Controllers
                 }
             
             }
-            catch(Exception ex)
+            catch(Exception exeption)
             {
-                //ModelState.AddModelError(String.Empty, ex);
+                //ModelState.AddModelError(String.Empty, exeption);
             }
             return View(book);
         }

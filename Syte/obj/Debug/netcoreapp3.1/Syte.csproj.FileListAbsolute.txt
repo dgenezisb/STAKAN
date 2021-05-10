@@ -396,5 +396,4 @@ C:\Users\Nikita\source\repos\stakan bd\Syte\bin\Debug\netcoreapp3.1\ru\Microsoft
 C:\Users\Nikita\source\repos\stakan bd\Syte\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Nikita\source\repos\stakan bd\Syte\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Nikita\source\repos\stakan bd\Syte\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Nikita\source\repos\stakan bd\Syte\obj\Debug\netcoreapp3.1\Razor\Views\Books\AddBook.cshtml.g.cs
 C:\Users\Nikita\source\repos\stakan bd\Syte\obj\Debug\netcoreapp3.1\Razor\Views\Books\Create.cshtml.g.cs
