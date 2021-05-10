@@ -89,7 +89,7 @@ namespace Syte.Controllers
             return View(BookDelete);
         }
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, IFormCollection collection)
         {
             var BookDelete = (from book in db.Book
                               where book.Id == id
@@ -103,6 +103,32 @@ namespace Syte.Controllers
             catch
             {
                 return View(BookDelete);
+            }
+
+
+        }
+        public ActionResult Edit(int id)
+        {
+            var BookEdit = (from book in db.Book
+                              where book.Id == id
+                              select book).First();
+            return View(BookEdit); 
+        }
+        [HttpPost]
+        public ActionResult Edit(int id, IFormCollection collection)
+        {
+            var BookEdit = (from book in db.Book
+                            where book.Id == id
+                            select book).First();
+            try
+            {
+                db.Update(BookEdit);
+                db.SaveChanges();
+                return View("List");
+            }
+            catch
+            {
+                return View(BookEdit);
             }
 
 
