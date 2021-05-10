@@ -11,7 +11,7 @@ namespace Syte
     {
         public AppDBContext(DbContextOptions<AppDBContext> options) : base(options)
         {
-
+            
         }
 
         public DbSet <Book> Book { get; set; }

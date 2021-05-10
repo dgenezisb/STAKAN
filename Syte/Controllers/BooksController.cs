@@ -18,17 +18,16 @@ namespace Syte.Controllers
         private readonly IAuthors _allAuthors;
         private readonly IPublisher _allPublishers;
         private readonly ICompilations _allCompilations;
-        private AppDBContext db = new AppDBContext(); 
+        private readonly AppDBContext db;
 
-
-
-        public BooksController(IAllBooks IAllBooks, ICategories IBooksCategories, IAuthors IAllAuthors, IPublisher IAllPublishers,ICompilations IAllCompilations)
+        public BooksController(IAllBooks IAllBooks, ICategories IBooksCategories, IAuthors IAllAuthors, IPublisher IAllPublishers,ICompilations IAllCompilations, AppDBContext db)
         {
             _allBooks = IAllBooks;
             _allCategories = IBooksCategories;
             _allAuthors = IAllAuthors;
             _allPublishers = IAllPublishers;
             _allCompilations = IAllCompilations;
+            this.db = db;
         }
 
         public ViewResult List()
@@ -66,7 +65,7 @@ namespace Syte.Controllers
                 
                 db.Book.Add(book);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("list");
             }
 
             ViewBag.Message = "Запрос не прошел валидацию";
