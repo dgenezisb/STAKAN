@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +31,14 @@ namespace Syte.Controllers
             _allCompilations = IAllCompilations;
             this.db = db;
         }
+
+        public ActionResult Index()
+        {
+            var books = (from book in db.Book select book).ToList();
+            return View(books);
+        }
+
+
 
         public ViewResult List()
         {
@@ -67,14 +77,37 @@ namespace Syte.Controllers
                 db.SaveChanges();
                 return RedirectToAction("list");
             }
-
             ViewBag.Message = "Запрос не прошел валидацию";
-            return View(book);
+            return View(book);  
+        }
+        public ActionResult Delete(int id)
+        {
             
+            var BookDelete = (from book in db.Book
+                              where book.Id == id
+                              select book).First();
+            return View(BookDelete);
         }
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection collection)
+        {
+            var BookDelete = (from book in db.Book
+                              where book.Id == id
+                              select book).First();
+            try
+            {
+                db.Remove(BookDelete);
+                db.SaveChanges();
+                return RedirectToAction("list");
+            }
+            catch
+            {
+                return View(BookDelete);
+            }
 
 
         }
+    }
 
 
 
