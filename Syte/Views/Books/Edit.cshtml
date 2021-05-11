@@ -20,7 +20,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="AuthorID" class="control-label"></label>
-                <select asp-for="AuthorID" class="form-control" asp-items="ViewBag.AuthorID"></select>
+                <select asp-for="AuthorID" class="form-control" asp-items="ViewBag.Authors"></select>
                 <span asp-validation-for="AuthorID" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -40,17 +40,17 @@
             </div>
             <div class="form-group">
                 <label asp-for="CategoryID" class="control-label"></label>
-                <select asp-for="CategoryID" class="form-control" asp-items="ViewBag.CategoryID"></select>
+                <select asp-for="CategoryID" class="form-control" asp-items="ViewBag.Categories"></select>
                 <span asp-validation-for="CategoryID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="PublisherID" class="control-label"></label>
-                <select asp-for="PublisherID" class="form-control" asp-items="ViewBag.PublisherID"></select>
+                <select asp-for="PublisherID" class="form-control" asp-items="ViewBag.Publisher"></select>
                 <span asp-validation-for="PublisherID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="CompilationID" class="control-label"></label>
-                <select asp-for="CompilationID" class="form-control" asp-items="ViewBag.CompilationID"></select>
+                <select asp-for="CompilationID" class="form-control" asp-items="ViewBag.Compilations"></select>
                 <span asp-validation-for="CompilationID" class="text-danger"></span>
             </div>
             <div class="form-group">
