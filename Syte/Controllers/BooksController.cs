@@ -87,14 +87,14 @@ namespace Syte.Controllers
         [HttpPost]
         public ActionResult Create(Book book)
         {
-            if (string.IsNullOrEmpty(book.Name))
-            {
-                ModelState.AddModelError("Name", "Некорректное название книги");
-            }
-            else if (book.Name.Length > 5)
-            {
-                ModelState.AddModelError("Name", "Недопустимая длина строки");
-            }
+            //if (string.IsNullOrEmpty(book.Name))
+            //{
+            //    ModelState.AddModelError("Name", "Некорректное название книги");
+            //}
+            //else if (book.Name.Length > 5)
+            //{
+            //    ModelState.AddModelError("Name", "Недопустимая длина строки");
+            //}
 
             if (ModelState.IsValid)
             {
