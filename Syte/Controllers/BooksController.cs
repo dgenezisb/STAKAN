@@ -87,7 +87,7 @@ namespace Syte.Controllers
             return View(obj);
         }
         [HttpPost]
-        public ActionResult Create(Book book, Category category)
+        public ActionResult Create(Book book, Category category, Authors authors, Compilations compilations, Publisher publisher)
         {
             //if (string.IsNullOrEmpty(book.Name))
             //{
@@ -101,13 +101,16 @@ namespace Syte.Controllers
             if (ModelState.IsValid)
             {
                 ViewBag.Message = "Валидация пройдена";
+                db.Authors.Add(authors);
                 db.Category.Add(category);
                 db.Book.Add(book);
+                db.Publisher.Add(publisher);
+                db.Compilation.Add(compilations);
                 db.SaveChanges();
                 return RedirectToAction("list");
             }
             ViewBag.Message = "Запрос не прошел валидацию";
-            return View(book);  
+            return View(book);
         }
         public ActionResult Delete(int id)
         {
