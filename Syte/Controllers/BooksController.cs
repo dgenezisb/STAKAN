@@ -72,20 +72,22 @@ namespace Syte.Controllers
             ViewBag.Title = "Наши книги";
             BooksListViewModel obj = new BooksListViewModel();
             obj.AllBooks = _allBooks.Books;
+            //obj.AllCategories = _allCategories.ListofCategories;
             obj.CurrentCategory = "Тут должно быть название жанра";
             return View(obj);
         }
         public ActionResult Create()
         {
-            Book book = new Book();
+            BooksCreateViewModel obj = new BooksCreateViewModel();
+            //Book book = new Book();
             ViewBag.Authors = new SelectList(_allAuthors.ListofAuthors,"Id", "Surname");
             ViewBag.Categories = new SelectList(_allCategories.ListofCategories, "Id", "CategoryName");
             ViewBag.Publisher = new SelectList(_allPublishers.ListofPublishers,"Id","Name");
             ViewBag.Compilations = new SelectList(_allCompilations.ListofCompilations,"Id","Name");
-            return View(book);
+            return View(obj);
         }
         [HttpPost]
-        public ActionResult Create(Book book)
+        public ActionResult Create(Book book, Category category)
         {
             //if (string.IsNullOrEmpty(book.Name))
             //{
@@ -99,7 +101,7 @@ namespace Syte.Controllers
             if (ModelState.IsValid)
             {
                 ViewBag.Message = "Валидация пройдена";
-                
+                db.Category.Add(category);
                 db.Book.Add(book);
                 db.SaveChanges();
                 return RedirectToAction("list");

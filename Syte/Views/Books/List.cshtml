@@ -9,13 +9,13 @@
         @{ 
             foreach (var book in Model.AllBooks)
             {
-        <div class="col-lg-4">
-            <img class= "img-thumbnail" src="@book.Image" alt="@book.Name"/>
-            <h2>@book.Name</h2>
-            <h5>@book.Author</h5>
-            <p>@book.Description</p>
-            <p><a class="btn btn-warning" href="#">Читать</a></p>
-        </div>
+                <div class="col-lg-4">
+                    <img class="img-thumbnail" src="@book.Image" alt="@book.Name" />
+                    <h2>@book.Name</h2>
+                    <h5>@book.Author</h5>
+                    <p>@book.Description</p>
+                    <p><a class="btn btn-warning" href="#">Читать</a></p>
+                </div>
             }
         }
     </div>
