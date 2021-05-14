@@ -39,29 +39,29 @@ namespace Syte.Controllers
             var categories = (from category in db.Category select category).ToList();
             var publishers = (from publisher in db.Publisher select publisher).ToList();
             var compilations = (from compilation in db.Compilation select compilation).ToList();
-            foreach (var book in books)
-            {
-                foreach (var author in authors)
-                {
-                    if (book.AuthorID == author.Id)
-                        book.Author.Surname = author.Surname;        
-                }
-                foreach (var category in categories)
-                {
-                    if (book.CategoryID == category.Id)
-                        book.Category.CategoryName = category.CategoryName;
-                }
-                foreach (var publisher in publishers)
-                {
-                    if (book.PublisherID == publisher.Id)
-                        book.Publisher.Name = publisher.Name;
-                }
-                foreach (var compilation in compilations)
-                {
-                    if (book.CompilationID == compilation.Id)
-                        book.Compilation.Name = compilation.Name;
-                }
-            }
+            //foreach (var book in books)
+            //{
+            //    foreach (var author in authors)
+            //    {
+            //        if (book.AuthorID == author.Id)
+            //            book.Author.Surname = author.Surname;        
+            //    }
+            //    foreach (var category in categories)
+            //    {
+            //        if (book.CategoryID == category.Id)
+            //            book.Category.CategoryName = category.CategoryName;
+            //    }
+            //    foreach (var publisher in publishers)
+            //    {
+            //        if (book.PublisherID == publisher.Id)
+            //            book.Publisher.Name = publisher.Name;
+            //    }
+            //    foreach (var compilation in compilations)
+            //    {
+            //        if (book.CompilationID == compilation.Id)
+            //            book.Compilation.Name = compilation.Name;
+              //}
+            
             return View(books);
         }
 
@@ -122,26 +122,26 @@ namespace Syte.Controllers
             var BookDelete = (from book in db.Book
                               where book.Id == id
                               select book).First();
-            foreach (var author in authors)
-            {
-                if (BookDelete.AuthorID == author.Id)
-                    BookDelete.Author.Surname = author.Surname;
-            }
-            foreach (var category in categories)
-            {
-                if (BookDelete.CategoryID == category.Id)
-                    BookDelete.Category.CategoryName = category.CategoryName;
-            }
-            foreach (var publisher in publishers)
-            {
-                if (BookDelete.PublisherID == publisher.Id)
-                    BookDelete.Publisher.Name = publisher.Name;
-            }
-            foreach (var compilation in compilations)
-            {
-                if (BookDelete.CompilationID == compilation.Id)
-                    BookDelete.Compilation.Name = compilation.Name;
-            }
+            //foreach (var author in authors)
+            //{
+            //    if (BookDelete.AuthorID == author.Id)
+            //        BookDelete.Author.Surname = author.Surname;
+            //}
+            //foreach (var category in categories)
+            //{
+            //    if (BookDelete.CategoryID == category.Id)
+            //        BookDelete.Category.CategoryName = category.CategoryName;
+            //}
+            //foreach (var publisher in publishers)
+            //{
+            //    if (BookDelete.PublisherID == publisher.Id)
+            //        BookDelete.Publisher.Name = publisher.Name;
+            //}
+            //foreach (var compilation in compilations)
+            //{
+            //    if (BookDelete.CompilationID == compilation.Id)
+            //        BookDelete.Compilation.Name = compilation.Name;
+            //}
             return View(BookDelete);
         }
         [HttpPost]
@@ -166,21 +166,24 @@ namespace Syte.Controllers
         public ActionResult Edit(int id)
         {
             var books = (from book in db.Book select book).ToList();
+
             var authors = (from author in db.Authors select author).ToList();
             var categories = (from category in db.Category select category).ToList();
-            foreach (var book in books)
-            {
-                foreach (var author in authors)
-                {
-                    if (book.AuthorID == author.Id)
-                        book.Author.Surname = author.Surname;
-                }
-                foreach (var category in categories)
-                {
-                    if (book.CategoryID == category.Id)
-                        book.Category.CategoryName = category.CategoryName;
-                }
-            }
+            var publishers = (from publisher in db.Publisher select publisher).ToList();
+            var compilations = (from compilation in db.Compilation select compilation).ToList();
+            //foreach (var book in books)
+            //{
+            //    foreach (var author in authors)
+            //    {
+            //        if (book.AuthorID == author.Id)
+            //            book.Author.Surname = author.Surname;
+            //    }
+            //    foreach (var category in categories)
+            //    {
+            //        if (book.CategoryID == category.Id)
+            //            book.Category.CategoryName = category.CategoryName;
+            //    }
+            //}
                 var BookEdit = (from book in db.Book
                               where book.Id == id
                               select book).First();
@@ -198,9 +201,9 @@ namespace Syte.Controllers
                             select book).First();
             try
             {
-                db.Update(BookEdit);
+                TryUpdateModelAsync(BookEdit);
                 db.SaveChanges();
-                return View("List");
+                return RedirectToAction("index");
             }
             catch
             {
@@ -209,8 +212,22 @@ namespace Syte.Controllers
 
 
         }
-    }
+        public ActionResult Details(int id)
+        {
+            var books = (from book in db.Book select book).ToList();
 
+            var authors = (from author in db.Authors select author).ToList();
+            var categories = (from category in db.Category select category).ToList();
+            var publishers = (from publisher in db.Publisher select publisher).ToList();
+            var compilations = (from compilation in db.Compilation select compilation).ToList();
+
+            var BookDetails = (from book in db.Book
+                               where book.Id == id
+                               select book).First();
+            return View(BookDetails);
+        }
+    }
+    
 
 
 }

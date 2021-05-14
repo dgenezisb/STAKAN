@@ -13,9 +13,10 @@ namespace Syte.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { set; get; }
         public string Name { set; get; }
-        public char Login { set; get; }
-        public char Password { set; get; }
-        public bool Admin;
+        //public string Surname { set; get; }
+        public string Login { set; get; }
+        public string Password { set; get; }
+        
         public List<MyBooks> MyBooks { set; get; }
 
     }
