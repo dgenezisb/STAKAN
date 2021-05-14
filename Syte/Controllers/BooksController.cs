@@ -44,7 +44,7 @@ namespace Syte.Controllers
             //    foreach (var author in authors)
             //    {
             //        if (book.AuthorID == author.Id)
-            //            book.Author.Surname = author.Surname;
+            //            book.Author.Surname = author.Surname;        
             //    }
             //    foreach (var category in categories)
             //    {
@@ -60,8 +60,8 @@ namespace Syte.Controllers
             //    {
             //        if (book.CompilationID == compilation.Id)
             //            book.Compilation.Name = compilation.Name;
-            //    }
-            //}
+              //}
+            
             return View(books);
         }
 
@@ -87,38 +87,43 @@ namespace Syte.Controllers
             return View(obj);
         }
         [HttpPost]
-        public ActionResult Create(Book book, Category category, Authors author, Compilations compilations, Publisher publisher)
+        public ActionResult Create(Book book, Category category, Authors authors, Compilations compilations, Publisher publisher)
         {
-            //if (string.IsNullOrEmpty(book.Name))
-            //{
-            //    ModelState.AddModelError("Name", "Некорректное название книги");
-            //}
-            //else if (book.Name.Length > 5)
-            //{
-            //    ModelState.AddModelError("Name", "Недопустимая длина строки");
-            //}
-
             if (ModelState.IsValid)
             {
                 ViewBag.Message = "Валидация пройдена";
-                db.Authors.Add(author);
+                db.Authors.Add(authors);
                 db.Category.Add(category);
                 db.Book.Add(book);
                 db.Publisher.Add(publisher);
                 db.Compilation.Add(compilations);
 
-                //books.AuthorID.
-                //var lastidau = db.Authors.Max(e => e.Id);
-                //var lastidbo = db.Book.Max(e => e.Id);
-                //var BookLast = (from book in db.Book.OrderBy(x => x.Id) where book.Id == lastidbo select book).Last();
-                //var AuthorLast = (from author in db.Authors.OrderBy(x => x.Id) where author.Id == lastidau select author).Last();
-                //BookLast.AuthorID = AuthorLast.Id;
 
+
+                //var authorId = db.Authors.Select(p => p.Id).DefaultIfEmpty(0).Max();
+                //var bookId= db.Book.Select(p => p.AuthorID).DefaultIfEmpty(0).Max();
+                //book.AuthorID = authorId;
+                //db.Book.Add(book);
+
+                db.SaveChanges();
+                return RedirectToAction("list");
+
+            }
+            ViewBag.Message = "Запрос не прошел валидацию";
+            return View(book);
+        }
+
+        public ActionResult CreateAuthor( Authors authors)
+        {
+            if (ModelState.IsValid)
+            {
+                ViewBag.Message = "Валидация пройдена";
+                db.Authors.Add(authors);
                 db.SaveChanges();
                 return RedirectToAction("list");
             }
             ViewBag.Message = "Запрос не прошел валидацию";
-            return View(book);
+            return View();
         }
         public ActionResult Delete(int id)
         {
@@ -130,26 +135,26 @@ namespace Syte.Controllers
             var BookDelete = (from book in db.Book
                               where book.Id == id
                               select book).First();
-            foreach (var author in authors)
-            {
-                if (BookDelete.AuthorID == author.Id)
-                    BookDelete.Author.Surname = author.Surname;
-            }
-            foreach (var category in categories)
-            {
-                if (BookDelete.CategoryID == category.Id)
-                    BookDelete.Category.CategoryName = category.CategoryName;
-            }
-            foreach (var publisher in publishers)
-            {
-                if (BookDelete.PublisherID == publisher.Id)
-                    BookDelete.Publisher.Name = publisher.Name;
-            }
-            foreach (var compilation in compilations)
-            {
-                if (BookDelete.CompilationID == compilation.Id)
-                    BookDelete.Compilation.Name = compilation.Name;
-            }
+            //foreach (var author in authors)
+            //{
+            //    if (BookDelete.AuthorID == author.Id)
+            //        BookDelete.Author.Surname = author.Surname;
+            //}
+            //foreach (var category in categories)
+            //{
+            //    if (BookDelete.CategoryID == category.Id)
+            //        BookDelete.Category.CategoryName = category.CategoryName;
+            //}
+            //foreach (var publisher in publishers)
+            //{
+            //    if (BookDelete.PublisherID == publisher.Id)
+            //        BookDelete.Publisher.Name = publisher.Name;
+            //}
+            //foreach (var compilation in compilations)
+            //{
+            //    if (BookDelete.CompilationID == compilation.Id)
+            //        BookDelete.Compilation.Name = compilation.Name;
+            //}
             return View(BookDelete);
         }
         [HttpPost]
@@ -174,21 +179,24 @@ namespace Syte.Controllers
         public ActionResult Edit(int id)
         {
             var books = (from book in db.Book select book).ToList();
+
             var authors = (from author in db.Authors select author).ToList();
             var categories = (from category in db.Category select category).ToList();
-            foreach (var book in books)
-            {
-                foreach (var author in authors)
-                {
-                    if (book.AuthorID == author.Id)
-                        book.Author.Surname = author.Surname;
-                }
-                foreach (var category in categories)
-                {
-                    if (book.CategoryID == category.Id)
-                        book.Category.CategoryName = category.CategoryName;
-                }
-            }
+            var publishers = (from publisher in db.Publisher select publisher).ToList();
+            var compilations = (from compilation in db.Compilation select compilation).ToList();
+            //foreach (var book in books)
+            //{
+            //    foreach (var author in authors)
+            //    {
+            //        if (book.AuthorID == author.Id)
+            //            book.Author.Surname = author.Surname;
+            //    }
+            //    foreach (var category in categories)
+            //    {
+            //        if (book.CategoryID == category.Id)
+            //            book.Category.CategoryName = category.CategoryName;
+            //    }
+            //}
                 var BookEdit = (from book in db.Book
                               where book.Id == id
                               select book).First();
@@ -206,9 +214,9 @@ namespace Syte.Controllers
                             select book).First();
             try
             {
-                db.Update(BookEdit);
+                TryUpdateModelAsync(BookEdit);
                 db.SaveChanges();
-                return View("List");
+                return RedirectToAction("index");
             }
             catch
             {
@@ -217,8 +225,22 @@ namespace Syte.Controllers
 
 
         }
-    }
+        public ActionResult Details(int id)
+        {
+            var books = (from book in db.Book select book).ToList();
 
+            var authors = (from author in db.Authors select author).ToList();
+            var categories = (from category in db.Category select category).ToList();
+            var publishers = (from publisher in db.Publisher select publisher).ToList();
+            var compilations = (from compilation in db.Compilation select compilation).ToList();
+
+            var BookDetails = (from book in db.Book
+                               where book.Id == id
+                               select book).First();
+            return View(BookDetails);
+        }
+    }
+    
 
 
 }
