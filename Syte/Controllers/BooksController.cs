@@ -39,29 +39,29 @@ namespace Syte.Controllers
             var categories = (from category in db.Category select category).ToList();
             var publishers = (from publisher in db.Publisher select publisher).ToList();
             var compilations = (from compilation in db.Compilation select compilation).ToList();
-            foreach (var book in books)
-            {
-                foreach (var author in authors)
-                {
-                    if (book.AuthorID == author.Id)
-                        book.Author.Surname = author.Surname;        
-                }
-                foreach (var category in categories)
-                {
-                    if (book.CategoryID == category.Id)
-                        book.Category.CategoryName = category.CategoryName;
-                }
-                foreach (var publisher in publishers)
-                {
-                    if (book.PublisherID == publisher.Id)
-                        book.Publisher.Name = publisher.Name;
-                }
-                foreach (var compilation in compilations)
-                {
-                    if (book.CompilationID == compilation.Id)
-                        book.Compilation.Name = compilation.Name;
-                }
-            }
+            //foreach (var book in books)
+            //{
+            //    foreach (var author in authors)
+            //    {
+            //        if (book.AuthorID == author.Id)
+            //            book.Author.Surname = author.Surname;
+            //    }
+            //    foreach (var category in categories)
+            //    {
+            //        if (book.CategoryID == category.Id)
+            //            book.Category.CategoryName = category.CategoryName;
+            //    }
+            //    foreach (var publisher in publishers)
+            //    {
+            //        if (book.PublisherID == publisher.Id)
+            //            book.Publisher.Name = publisher.Name;
+            //    }
+            //    foreach (var compilation in compilations)
+            //    {
+            //        if (book.CompilationID == compilation.Id)
+            //            book.Compilation.Name = compilation.Name;
+            //    }
+            //}
             return View(books);
         }
 
@@ -87,7 +87,7 @@ namespace Syte.Controllers
             return View(obj);
         }
         [HttpPost]
-        public ActionResult Create(Book book, Category category, Authors authors, Compilations compilations, Publisher publisher)
+        public ActionResult Create(Book book, Category category, Authors author, Compilations compilations, Publisher publisher)
         {
             //if (string.IsNullOrEmpty(book.Name))
             //{
@@ -101,11 +101,19 @@ namespace Syte.Controllers
             if (ModelState.IsValid)
             {
                 ViewBag.Message = "Валидация пройдена";
-                db.Authors.Add(authors);
+                db.Authors.Add(author);
                 db.Category.Add(category);
                 db.Book.Add(book);
                 db.Publisher.Add(publisher);
                 db.Compilation.Add(compilations);
+
+                //books.AuthorID.
+                //var lastidau = db.Authors.Max(e => e.Id);
+                //var lastidbo = db.Book.Max(e => e.Id);
+                //var BookLast = (from book in db.Book.OrderBy(x => x.Id) where book.Id == lastidbo select book).Last();
+                //var AuthorLast = (from author in db.Authors.OrderBy(x => x.Id) where author.Id == lastidau select author).Last();
+                //BookLast.AuthorID = AuthorLast.Id;
+
                 db.SaveChanges();
                 return RedirectToAction("list");
             }
