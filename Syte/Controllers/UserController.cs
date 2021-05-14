@@ -32,14 +32,10 @@ namespace Syte.Controllers
                 ViewBag.Message = "Валидация пройдена";
                 db.User.Add(user);
                 db.SaveChanges();
-                return RedirectToAction("index");
+                return RedirectToAction();
             }
             ViewBag.Message = "Запрос не прошел валидацию";
-            return RedirectToAction("index");
-
-
-
-
+            return RedirectToAction();
         }
         }
 }

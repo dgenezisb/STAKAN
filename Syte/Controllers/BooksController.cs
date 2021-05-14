@@ -89,15 +89,6 @@ namespace Syte.Controllers
         [HttpPost]
         public ActionResult Create(Book book, Category category, Authors authors, Compilations compilations, Publisher publisher)
         {
-            //if (string.IsNullOrEmpty(book.Name))
-            //{
-            //    ModelState.AddModelError("Name", "Некорректное название книги");
-            //}
-            //else if (book.Name.Length > 5)
-            //{
-            //    ModelState.AddModelError("Name", "Недопустимая длина строки");
-            //}
-
             if (ModelState.IsValid)
             {
                 ViewBag.Message = "Валидация пройдена";
@@ -106,11 +97,33 @@ namespace Syte.Controllers
                 db.Book.Add(book);
                 db.Publisher.Add(publisher);
                 db.Compilation.Add(compilations);
+
+
+
+                //var authorId = db.Authors.Select(p => p.Id).DefaultIfEmpty(0).Max();
+                //var bookId= db.Book.Select(p => p.AuthorID).DefaultIfEmpty(0).Max();
+                //book.AuthorID = authorId;
+                //db.Book.Add(book);
+
+                db.SaveChanges();
+                return RedirectToAction("list");
+
+            }
+            ViewBag.Message = "Запрос не прошел валидацию";
+            return View(book);
+        }
+
+        public ActionResult CreateAuthor( Authors authors)
+        {
+            if (ModelState.IsValid)
+            {
+                ViewBag.Message = "Валидация пройдена";
+                db.Authors.Add(authors);
                 db.SaveChanges();
                 return RedirectToAction("list");
             }
             ViewBag.Message = "Запрос не прошел валидацию";
-            return View(book);
+            return View();
         }
         public ActionResult Delete(int id)
         {

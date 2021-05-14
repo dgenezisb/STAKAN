@@ -9,30 +9,30 @@ using Syte.Models;
 
 namespace Syte.Controllers
 {
-    public class CategoriesController: Controller
+    public class CompilationsController : Controller
     {
-        private readonly ICategories _categories;
+        private readonly ICompilations _compilation;
         private readonly AppDBContext db;
-        public CategoriesController(ICategories iCategories, AppDBContext db)
+        public CompilationsController(ICompilations iCompilation, AppDBContext db)
         {
-            _categories = iCategories;
-            this.db=db;
+            _compilation = iCompilation;
+            this.db = db;
         }
-        public ActionResult CreateCategory()
+        public ActionResult CreateCompilation()
         {
-           
-            ViewBag.Categories = new SelectList(_categories.ListofCategories, "Id", "CategoryName");
-            
+
+            ViewBag.Compilations = new SelectList(_compilation.ListofCompilations, "Id", "Name");
+
             return View();
         }
         [HttpPost]
-        public ActionResult CreateCategory( Category category)
+        public ActionResult CreateCompilation(Compilations compilation)
         {
             if (ModelState.IsValid)
             {
                 ViewBag.Message = "Валидация пройдена";
-               
-                db.Category.Add(category);
+
+                db.Compilation.Add(compilation);
                 db.SaveChanges();
                 return RedirectToAction();
 
@@ -43,8 +43,9 @@ namespace Syte.Controllers
 
         public ViewResult ListOfCategories()
         {
-            var categories = _categories.ListofCategories;
-            return View(categories);
+            var compilations = _compilation.ListofCompilations;
+            return View(compilations);
         }
     }
 }
+
