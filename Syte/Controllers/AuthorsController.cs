@@ -9,30 +9,30 @@ using Syte.Models;
 
 namespace Syte.Controllers
 {
-    public class CategoriesController: Controller
+    public class AuthorsController : Controller
     {
-        private readonly ICategories _categories;
+        private readonly IAuthors _author;
         private readonly AppDBContext db;
-        public CategoriesController(ICategories iCategories, AppDBContext db)
+        public AuthorsController(IAuthors iAuthors, AppDBContext db)
         {
-            _categories = iCategories;
-            this.db=db;
+            _author = iAuthors;
+            this.db = db;
         }
-        public ActionResult CreateCategory()
+
+        public ActionResult CreateAuthor()
         {
-           
-            ViewBag.Categories = new SelectList(_categories.ListofCategories, "Id", "CategoryName");
-            
+
+            ViewBag.Authors = new SelectList(_author.ListofAuthors, "Id", "Name");
             return View();
         }
         [HttpPost]
-        public ActionResult CreateCategory( Category category)
+        public ActionResult CreateAuthor(Authors author)
         {
             if (ModelState.IsValid)
             {
                 ViewBag.Message = "Валидация пройдена";
-               
-                db.Category.Add(category);
+
+                db.Authors.Add(author);
                 db.SaveChanges();
                 return RedirectToAction();
 
@@ -41,10 +41,12 @@ namespace Syte.Controllers
             return View();
         }
 
+
         public ViewResult ListOfCategories()
         {
-            var categories = _categories.ListofCategories;
-            return View(categories);
+            var authors = _author.ListofAuthors;
+            return View(authors);
         }
     }
 }
+

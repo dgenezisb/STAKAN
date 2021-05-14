@@ -602,7 +602,6 @@ D:\UnikProject\Syte\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Da
 D:\UnikProject\Syte\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 D:\UnikProject\Syte\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 D:\UnikProject\Syte\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-D:\UnikProject\Syte\obj\Debug\netcoreapp3.1\Syte.csprojAssemblyReference.cache
 D:\UnikProject\Syte\obj\Debug\netcoreapp3.1\Syte.AssemblyInfoInputs.cache
 D:\UnikProject\Syte\obj\Debug\netcoreapp3.1\Syte.AssemblyInfo.cs
 D:\UnikProject\Syte\obj\Debug\netcoreapp3.1\Syte.csproj.CoreCompileInputs.cache
@@ -634,3 +633,8 @@ D:\UnikProject\Syte\obj\Debug\netcoreapp3.1\Syte.csproj.CopyComplete
 D:\UnikProject\Syte\obj\Debug\netcoreapp3.1\Syte.dll
 D:\UnikProject\Syte\obj\Debug\netcoreapp3.1\Syte.pdb
 D:\UnikProject\Syte\obj\Debug\netcoreapp3.1\Syte.genruntimeconfig.cache
+D:\UnikProject\Syte\obj\Debug\netcoreapp3.1\Razor\Views\Categories\CreateCategory.cshtml.g.cs
+D:\UnikProject\Syte\obj\Debug\netcoreapp3.1\Razor\Views\Publishers\CreatePublisher.cshtml.g.cs
+D:\UnikProject\Syte\obj\Debug\netcoreapp3.1\Razor\Views\Authors\CreateAuthor.cshtml.g.cs
+D:\UnikProject\Syte\obj\Debug\netcoreapp3.1\Razor\Views\Compilations\CreateCompilation.cshtml.g.cs
+D:\UnikProject\Syte\obj\Debug\netcoreapp3.1\Razor\Views\User\Create.cshtml.g.cs
