@@ -37,5 +37,21 @@ namespace Syte.Controllers
             ViewBag.Message = "Запрос не прошел валидацию";
             return View(user);
         }
+        public ActionResult Login()
+        {
+            User obj = new User();
+            return View(obj);
         }
+        [HttpPost]
+        public ActionResult Login(User user)
+        {
+            if (ModelState.IsValid)
+            {
+                ViewBag.Message = "Валидация пройдена";
+                return RedirectToRoute(new { controller = "Books", action = "List" });
+            }
+            ViewBag.Message = "Запрос не прошел валидацию";
+            return View(user);
+        }
+    }
 }
