@@ -1,12 +1,9 @@
 ﻿@model Syte.Models.Book
 
-@{
-    ViewData["Title"] = "Edit";
-}
+@{ ViewData["Title"] = "Редактирование"; }
 
-<h1>Edit</h1>
-
-<h4>Book</h4>
+<h1>Редактирование книги</h1>
+<h4>@Model.Name</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -14,22 +11,27 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
+                <label class="control-label">Название</label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="AuthorID" class="control-label"></label>
+                <label class="control-label">Автор</label>
                 <select asp-for="AuthorID" class="form-control" asp-items="ViewBag.Authors"></select>
                 <span asp-validation-for="AuthorID" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
+                <label class="control-label">Описание</label>
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Image" class="control-label"></label>
+                <label class="control-label">Жанр</label>
+                <select asp-for="CategoryID" class="form-control" asp-items="ViewBag.Categories"></select>
+                <span asp-validation-for="CategoryID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">URL ссылка на обложку</label>
                 <input asp-for="Image" class="form-control" />
                 <span asp-validation-for="Image" class="text-danger"></span>
             </div>
@@ -39,22 +41,17 @@
                 </label>
             </div>
             <div class="form-group">
-                <label asp-for="CategoryID" class="control-label"></label>
-                <select asp-for="CategoryID" class="form-control" asp-items="ViewBag.Categories"></select>
-                <span asp-validation-for="CategoryID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PublisherID" class="control-label"></label>
+                <label class="control-label">Издательство</label>
                 <select asp-for="PublisherID" class="form-control" asp-items="ViewBag.Publisher"></select>
                 <span asp-validation-for="PublisherID" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CompilationID" class="control-label"></label>
+                <label class="control-label">Подборка</label>
                 <select asp-for="CompilationID" class="form-control" asp-items="ViewBag.Compilations"></select>
                 <span asp-validation-for="CompilationID" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Сохранить" class="btn btn-primary" />
             </div>
         </form>
     </div>

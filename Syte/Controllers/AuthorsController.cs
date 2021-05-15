@@ -19,34 +19,32 @@ namespace Syte.Controllers
             this.db = db;
         }
 
-        public ActionResult CreateAuthor()
+        public ActionResult Create()
         {
-
-            ViewBag.Authors = new SelectList(_author.ListofAuthors, "Id", "Name");
-            return View();
+            Authors obj = new Authors();
+            return View(obj);
         }
+
         [HttpPost]
-        public ActionResult CreateAuthor(Authors author)
+        public ActionResult Create(Authors author)
         {
             if (ModelState.IsValid)
             {
                 ViewBag.Message = "Валидация пройдена";
-
                 db.Authors.Add(author);
                 db.SaveChanges();
-                return RedirectToAction();
-
+                return RedirectToRoute(new { controller = "Books", action = "List" });
             }
             ViewBag.Message = "Запрос не прошел валидацию";
-            return View();
+            return View(author);
         }
 
 
-        public ViewResult ListOfCategories()
-        {
-            var authors = _author.ListofAuthors;
-            return View(authors);
-        }
+        //public ViewResult ListOfCategories()
+        //{
+        //    var authors = _author.ListofAuthors;
+        //    return View(authors);
+        //}
     }
 }
 
