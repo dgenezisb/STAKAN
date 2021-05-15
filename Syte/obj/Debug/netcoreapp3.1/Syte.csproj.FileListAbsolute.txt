@@ -146,7 +146,6 @@ C:\Users\maks_\Desktop\Project\ProjectUnik\Syte\obj\Debug\netcoreapp3.1\Syte.Tag
 C:\Users\maks_\Desktop\Project\ProjectUnik\Syte\obj\Debug\netcoreapp3.1\Syte.TagHelpers.output.cache
 C:\Users\maks_\Desktop\Project\ProjectUnik\Syte\obj\Debug\netcoreapp3.1\Syte.RazorCoreGenerate.cache
 C:\Users\maks_\Desktop\Project\ProjectUnik\Syte\obj\Debug\netcoreapp3.1\Razor\Views\Books\List.cshtml.g.cs
-C:\Users\maks_\Desktop\Project\ProjectUnik\Syte\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\maks_\Desktop\Project\ProjectUnik\Syte\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\maks_\Desktop\Project\ProjectUnik\Syte\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\maks_\Desktop\Project\ProjectUnik\Syte\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
@@ -638,3 +637,11 @@ D:\UnikProject\Syte\obj\Debug\netcoreapp3.1\Razor\Views\Publishers\CreatePublish
 D:\UnikProject\Syte\obj\Debug\netcoreapp3.1\Razor\Views\Authors\CreateAuthor.cshtml.g.cs
 D:\UnikProject\Syte\obj\Debug\netcoreapp3.1\Razor\Views\Compilations\CreateCompilation.cshtml.g.cs
 D:\UnikProject\Syte\obj\Debug\netcoreapp3.1\Razor\Views\User\Create.cshtml.g.cs
+C:\Users\maks_\Desktop\Project\ProjectUnik\Syte\obj\Debug\netcoreapp3.1\Razor\Views\Books\Details.cshtml.g.cs
+C:\Users\maks_\Desktop\Project\ProjectUnik\Syte\obj\Debug\netcoreapp3.1\Razor\Views\Categories\CreateCategory.cshtml.g.cs
+C:\Users\maks_\Desktop\Project\ProjectUnik\Syte\obj\Debug\netcoreapp3.1\Razor\Views\Compilations\CreateCompilation.cshtml.g.cs
+C:\Users\maks_\Desktop\Project\ProjectUnik\Syte\obj\Debug\netcoreapp3.1\Razor\Views\Publishers\CreatePublisher.cshtml.g.cs
+C:\Users\maks_\Desktop\Project\ProjectUnik\Syte\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Index.cshtml.g.cs
+C:\Users\maks_\Desktop\Project\ProjectUnik\Syte\obj\Debug\netcoreapp3.1\Razor\Views\User\Create.cshtml.g.cs
+C:\Users\maks_\Desktop\Project\ProjectUnik\Syte\obj\Debug\netcoreapp3.1\Razor\Views\Authors\Create.cshtml.g.cs
+C:\Users\maks_\Desktop\Project\ProjectUnik\Syte\obj\Debug\netcoreapp3.1\Razor\Views\User\Login.cshtml.g.cs

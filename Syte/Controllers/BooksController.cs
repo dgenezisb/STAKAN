@@ -39,46 +39,19 @@ namespace Syte.Controllers
             var categories = (from category in db.Category select category).ToList();
             var publishers = (from publisher in db.Publisher select publisher).ToList();
             var compilations = (from compilation in db.Compilation select compilation).ToList();
-            //foreach (var book in books)
-            //{
-            //    foreach (var author in authors)
-            //    {
-            //        if (book.AuthorID == author.Id)
-            //            book.Author.Surname = author.Surname;        
-            //    }
-            //    foreach (var category in categories)
-            //    {
-            //        if (book.CategoryID == category.Id)
-            //            book.Category.CategoryName = category.CategoryName;
-            //    }
-            //    foreach (var publisher in publishers)
-            //    {
-            //        if (book.PublisherID == publisher.Id)
-            //            book.Publisher.Name = publisher.Name;
-            //    }
-            //    foreach (var compilation in compilations)
-            //    {
-            //        if (book.CompilationID == compilation.Id)
-            //            book.Compilation.Name = compilation.Name;
-              //}
-            
             return View(books);
         }
-
-
-
         public ViewResult List()
         {
-            ViewBag.Title = "Наши книги";
+            ViewBag.Title = "Книги";
             BooksListViewModel obj = new BooksListViewModel();
             obj.AllBooks = _allBooks.Books;
-            //obj.AllCategories = _allCategories.ListofCategories;
             obj.CurrentCategory = "Тут должно быть название жанра";
             return View(obj);
         }
         public ActionResult Create()
         {
-            BooksCreateViewModel obj = new BooksCreateViewModel();
+            Book obj = new Book();
             //Book book = new Book();
             ViewBag.Authors = new SelectList(_allAuthors.ListofAuthors,"Id", "Surname");
             ViewBag.Categories = new SelectList(_allCategories.ListofCategories, "Id", "CategoryName");
@@ -87,44 +60,32 @@ namespace Syte.Controllers
             return View(obj);
         }
         [HttpPost]
-        public ActionResult Create(Book book, Category category, Authors authors, Compilations compilations, Publisher publisher)
+        public ActionResult Create(Book book)
         {
             if (ModelState.IsValid)
             {
                 ViewBag.Message = "Валидация пройдена";
-                db.Authors.Add(authors);
-                db.Category.Add(category);
                 db.Book.Add(book);
-                db.Publisher.Add(publisher);
-                db.Compilation.Add(compilations);
-
-
-
-                //var authorId = db.Authors.Select(p => p.Id).DefaultIfEmpty(0).Max();
-                //var bookId= db.Book.Select(p => p.AuthorID).DefaultIfEmpty(0).Max();
-                //book.AuthorID = authorId;
-                //db.Book.Add(book);
 
                 db.SaveChanges();
-                return RedirectToAction("list");
+                return RedirectToRoute(new { controller = "Books", action = "List" });
 
             }
             ViewBag.Message = "Запрос не прошел валидацию";
             return View(book);
         }
-
-        public ActionResult CreateAuthor( Authors authors)
-        {
-            if (ModelState.IsValid)
-            {
-                ViewBag.Message = "Валидация пройдена";
-                db.Authors.Add(authors);
-                db.SaveChanges();
-                return RedirectToAction("list");
-            }
-            ViewBag.Message = "Запрос не прошел валидацию";
-            return View();
-        }
+        //public ActionResult CreateAuthor( Authors authors)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        ViewBag.Message = "Валидация пройдена";
+        //        db.Authors.Add(authors);
+        //        db.SaveChanges();
+        //        return RedirectToAction("list");
+        //    }
+        //    ViewBag.Message = "Запрос не прошел валидацию";
+        //    return View();
+        //}
         public ActionResult Delete(int id)
         {
             var authors = (from author in db.Authors select author).ToList();
@@ -135,26 +96,6 @@ namespace Syte.Controllers
             var BookDelete = (from book in db.Book
                               where book.Id == id
                               select book).First();
-            //foreach (var author in authors)
-            //{
-            //    if (BookDelete.AuthorID == author.Id)
-            //        BookDelete.Author.Surname = author.Surname;
-            //}
-            //foreach (var category in categories)
-            //{
-            //    if (BookDelete.CategoryID == category.Id)
-            //        BookDelete.Category.CategoryName = category.CategoryName;
-            //}
-            //foreach (var publisher in publishers)
-            //{
-            //    if (BookDelete.PublisherID == publisher.Id)
-            //        BookDelete.Publisher.Name = publisher.Name;
-            //}
-            //foreach (var compilation in compilations)
-            //{
-            //    if (BookDelete.CompilationID == compilation.Id)
-            //        BookDelete.Compilation.Name = compilation.Name;
-            //}
             return View(BookDelete);
         }
         [HttpPost]
@@ -167,7 +108,7 @@ namespace Syte.Controllers
             {
                 db.Remove(BookDelete);
                 db.SaveChanges();
-                return RedirectToAction("list");
+                return RedirectToRoute(new { controller = "Books", action = "List" });
             }
             catch
             {
@@ -184,20 +125,7 @@ namespace Syte.Controllers
             var categories = (from category in db.Category select category).ToList();
             var publishers = (from publisher in db.Publisher select publisher).ToList();
             var compilations = (from compilation in db.Compilation select compilation).ToList();
-            //foreach (var book in books)
-            //{
-            //    foreach (var author in authors)
-            //    {
-            //        if (book.AuthorID == author.Id)
-            //            book.Author.Surname = author.Surname;
-            //    }
-            //    foreach (var category in categories)
-            //    {
-            //        if (book.CategoryID == category.Id)
-            //            book.Category.CategoryName = category.CategoryName;
-            //    }
-            //}
-                var BookEdit = (from book in db.Book
+            var BookEdit = (from book in db.Book
                               where book.Id == id
                               select book).First();
             ViewBag.Authors = new SelectList(_allAuthors.ListofAuthors, "Id", "Surname");
@@ -216,7 +144,7 @@ namespace Syte.Controllers
             {
                 TryUpdateModelAsync(BookEdit);
                 db.SaveChanges();
-                return RedirectToAction("index");
+                return RedirectToRoute(new { controller = "Books", action = "List" });
             }
             catch
             {
