@@ -1,90 +1,83 @@
-﻿@model BooksCreateViewModel
-@{ ViewData["Title"] = "Create"; }
-<link rel="stylesheet" type="text/css" href="/css/styleCreateBook.css">
+﻿@model Syte.Models.Book
+@{ ViewData["Title"] = "Новая книга"; }
 
-<h1>Create</h1>
-<h4>Book</h4>
+<h1>Добавление книги</h1>
 <hr />
-<script>
+@*<script>
     function handlerSubmitAddAuthor(event) {
-        event.preventDefault(); // Предотвращает отпарвку формы
+        event.preventDefault(); 
         let tmp = document.getElementById("Author-data").style.display;
         document.getElementById("Author-data").style.display = tmp === 'block' ? 'none' : 'block';
     }
     function handlerSubmitAddCategory(event) {
-        event.preventDefault(); // Предотвращает отпарвку формы
+        event.preventDefault(); 
         let tmp = document.getElementById("Category-data").style.display;
         document.getElementById("Category-data").style.display = tmp === 'block' ? 'none' : 'block';
     }
     function handlerSubmitAddPublishId(event) {
-        event.preventDefault(); // Предотвращает отпарвку формы
+        event.preventDefault(); 
         let tmp = document.getElementById("PublishId-data").style.display;
         document.getElementById("PublishId-data").style.display = tmp === 'block' ? 'none' : 'block';
     }
     function handlerSubmitAddCompilationID(event) {
-        event.preventDefault(); // Предотвращает отпарвку формы
+        event.preventDefault(); 
         let tmp = document.getElementById("CompilationID-data").style.display;
         document.getElementById("CompilationID-data").style.display = tmp === 'block' ? 'none' : 'block';
     }
     function clik(event) {
-        event.preventDefault(); // Предотвращает отпарвку формы
+        event.preventDefault(); 
         let tmp = document.getElementById("Author-data").style.display;
         document.getElementById("Author-data").style.display = tmp === 'block' ? 'none' : 'block';
     }
 
-</script>
+</script>*@
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="book.Name" class="control-label"></label>
-                <input asp-for="book.Name" class="form-control" />
-                <span asp-validation-for="book.Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="book.Author" class="control-label"></label>
-                <select asp-for="book.AuthorID" class="form-control" asp-items="ViewBag.Authors"></select>
-            </div>
-            <input type="button" value="Добавить автора" onClick='location.href="https://localhost:44352/Authors/CreateAuthor"' />
-
 
             <div class="form-group">
-                <label asp-for="book.Description" class="control-label"></label>
-                <input asp-for="book.Description" class="form-control" />
-                <span asp-validation-for="book.Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="book.Image" class="control-label"></label>
-                <input asp-for="book.Image" class="form-control" />
-                <span asp-validation-for="book.Image" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="book.IsFavourite" /> @Html.DisplayNameFor(model => model.book.IsFavourite)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="book.CategoryID" class="control-label"></label>
-                <select asp-for="book.CategoryID" class="form-control" asp-items="ViewBag.Categories"></select>
+                <label class="control-label">Название</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
             </div>
 
-
-            <input type="button" value="Добавить категорию" onClick='location.href="https://localhost:44352/Categories/CreateCategory"' />
+            <div class="form-group">
+                <label class="control-label">Автор</label>
+                <select asp-for="AuthorID" class="form-control" asp-items="ViewBag.Authors"></select>
+            </div>
+            <input type="button" value="Добавить автора" onClick='location.href="https://localhost:44352/Authors/Create"' />
 
             <div class="form-group">
-                <label asp-for="book.PublisherID" class="control-label"></label>
-                <select asp-for="book.PublisherID" class="form-control" asp-items="ViewBag.Publisher"></select>
+                <label class="control-label">Описание</label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
             </div>
-            <input type="button" value="Добавить издательство" onClick='location.href="https://localhost:44352/Publishers/CreatePublisher"' />
+
+            <div class="form-group">
+                <label class="control-label">Жанр</label>
+                <select asp-for="CategoryID" class="form-control" asp-items="ViewBag.Categories"></select>
+            </div>
+            <input type="button" value="Добавить жанр" onClick='location.href="https://localhost:44352/Categories/Create"' />
+
+            <div class="form-group">
+                <label class="control-label">URL изображение обложки</label>
+                <input asp-for="Image" class="form-control" />
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Издательство</label>
+                <select asp-for="PublisherID" class="form-control" asp-items="ViewBag.Publisher"></select>
+            </div>
+            <input type="button" value="Добавить издательство" onClick='location.href="https://localhost:44352/Publishers/Create"' />
 
 
             <div class="form-group">
-                <label asp-for="book.CompilationID" class="control-label"></label>
-                <select asp-for="book.CompilationID" class="form-control" asp-items="ViewBag.Compilations"></select>
+                <label class="control-label">Подборка</label>
+                <select asp-for="CompilationID" class="form-control" asp-items="ViewBag.Compilations"></select>
             </div>
-
-            <input type="button" value="Добавить подборку" onClick='location.href="https://localhost:44352/Compilations/CreateCompilation"' />
+            <input type="button" value="Добавить подборку" onClick='location.href="https://localhost:44352/Compilations/Create"' />
 
             <div class="form-group">
                 <input type="submit" value="Добавить книгу" class="btn btn-primary" />
