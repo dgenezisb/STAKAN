@@ -20,14 +20,14 @@ namespace Syte.Controllers
             this.db = db;
         }
 
-        public ActionResult CreatePublisher()
+        public ActionResult Create()
         {
 
             ViewBag.Publishers = new SelectList(_publisher.ListofPublishers, "Id", "Name");
             return View();
         }
         [HttpPost]
-        public ActionResult CreatePublisher(Publisher publisher)
+        public ActionResult Create(Publisher publisher)
         {
             if (ModelState.IsValid)
             {

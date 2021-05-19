@@ -20,15 +20,17 @@ namespace Syte.Controllers
         private readonly IAuthors _allAuthors;
         private readonly IPublisher _allPublishers;
         private readonly ICompilations _allCompilations;
+        private readonly ITags _allTags;
         private readonly AppDBContext db;
 
-        public BooksController(IAllBooks IAllBooks, ICategories IBooksCategories, IAuthors IAllAuthors, IPublisher IAllPublishers,ICompilations IAllCompilations, AppDBContext db)
+        public BooksController(IAllBooks IAllBooks, ICategories IBooksCategories, IAuthors IAllAuthors, IPublisher IAllPublishers,ICompilations IAllCompilations, ITags IAllTags, AppDBContext db)
         {
             _allBooks = IAllBooks;
             _allCategories = IBooksCategories;
             _allAuthors = IAllAuthors;
             _allPublishers = IAllPublishers;
             _allCompilations = IAllCompilations;
+            _allTags = IAllTags;
             this.db = db;
         }
 
@@ -57,6 +59,7 @@ namespace Syte.Controllers
             ViewBag.Categories = new SelectList(_allCategories.ListofCategories, "Id", "CategoryName");
             ViewBag.Publisher = new SelectList(_allPublishers.ListofPublishers,"Id","Name");
             ViewBag.Compilations = new SelectList(_allCompilations.ListofCompilations,"Id","Name");
+            ViewBag.Tags = new SelectList(_allTags.ListofTags, "Id", "Name");
             return View(obj);
         }
         [HttpPost]
@@ -65,6 +68,11 @@ namespace Syte.Controllers
             if (ModelState.IsValid)
             {
                 ViewBag.Message = "Валидация пройдена";
+
+                //var author = CreateAuthor("Name");
+
+                //book.Author = author;
+
                 db.Book.Add(book);
 
                 db.SaveChanges();
@@ -74,6 +82,15 @@ namespace Syte.Controllers
             ViewBag.Message = "Запрос не прошел валидацию";
             return View(book);
         }
+
+        //public Authors CreateAuthor(string authorName)
+        //{
+        //    Authors newAuthor = new Authors() { Name = authorName };
+        //    db.Authors.Add(newAuthor);
+        //    db.SaveChanges();
+        //    return newAuthor;
+
+        //}
         //public ActionResult CreateAuthor( Authors authors)
         //{
         //    if (ModelState.IsValid)
@@ -167,7 +184,17 @@ namespace Syte.Controllers
                                select book).First();
             return View(BookDetails);
         }
+        public ActionResult Book(int id)
+        {
+
+
+            var ThisBook = (from book in db.Book
+                            where book.Id == id
+                            select book).First();
+            return View(ThisBook);
+        }
     }
+
     
 
 

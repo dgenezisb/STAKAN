@@ -18,7 +18,7 @@ namespace Syte.Controllers
             _categories = iCategories;
             this.db=db;
         }
-        public ActionResult CreateCategory()
+        public ActionResult Create()
         {
            
             ViewBag.Categories = new SelectList(_categories.ListofCategories, "Id", "CategoryName");
@@ -26,7 +26,7 @@ namespace Syte.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult CreateCategory( Category category)
+        public ActionResult Create( Category category)
         {
             if (ModelState.IsValid)
             {

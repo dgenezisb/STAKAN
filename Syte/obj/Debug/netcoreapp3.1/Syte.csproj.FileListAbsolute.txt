@@ -638,10 +638,11 @@ D:\UnikProject\Syte\obj\Debug\netcoreapp3.1\Razor\Views\Authors\CreateAuthor.csh
 D:\UnikProject\Syte\obj\Debug\netcoreapp3.1\Razor\Views\Compilations\CreateCompilation.cshtml.g.cs
 D:\UnikProject\Syte\obj\Debug\netcoreapp3.1\Razor\Views\User\Create.cshtml.g.cs
 C:\Users\maks_\Desktop\Project\ProjectUnik\Syte\obj\Debug\netcoreapp3.1\Razor\Views\Books\Details.cshtml.g.cs
-C:\Users\maks_\Desktop\Project\ProjectUnik\Syte\obj\Debug\netcoreapp3.1\Razor\Views\Categories\CreateCategory.cshtml.g.cs
-C:\Users\maks_\Desktop\Project\ProjectUnik\Syte\obj\Debug\netcoreapp3.1\Razor\Views\Compilations\CreateCompilation.cshtml.g.cs
-C:\Users\maks_\Desktop\Project\ProjectUnik\Syte\obj\Debug\netcoreapp3.1\Razor\Views\Publishers\CreatePublisher.cshtml.g.cs
 C:\Users\maks_\Desktop\Project\ProjectUnik\Syte\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Index.cshtml.g.cs
 C:\Users\maks_\Desktop\Project\ProjectUnik\Syte\obj\Debug\netcoreapp3.1\Razor\Views\User\Create.cshtml.g.cs
 C:\Users\maks_\Desktop\Project\ProjectUnik\Syte\obj\Debug\netcoreapp3.1\Razor\Views\Authors\Create.cshtml.g.cs
 C:\Users\maks_\Desktop\Project\ProjectUnik\Syte\obj\Debug\netcoreapp3.1\Razor\Views\User\Login.cshtml.g.cs
+C:\Users\maks_\Desktop\Project\ProjectUnik\Syte\obj\Debug\netcoreapp3.1\Razor\Views\Categories\Create.cshtml.g.cs
+C:\Users\maks_\Desktop\Project\ProjectUnik\Syte\obj\Debug\netcoreapp3.1\Razor\Views\Compilations\Create.cshtml.g.cs
+C:\Users\maks_\Desktop\Project\ProjectUnik\Syte\obj\Debug\netcoreapp3.1\Razor\Views\Publishers\Create.cshtml.g.cs
+C:\Users\maks_\Desktop\Project\ProjectUnik\Syte\obj\Debug\netcoreapp3.1\Razor\Views\Books\Book.cshtml.g.cs
