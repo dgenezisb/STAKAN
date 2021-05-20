@@ -13,6 +13,7 @@ namespace Syte.Controllers
     {
         private readonly IUser _allUsers;
         private readonly AppDBContext db;
+        internal bool logged_in;
         public UserController(IUser IAllUsers, AppDBContext db)
         {
             _allUsers = IAllUsers;
@@ -48,10 +49,19 @@ namespace Syte.Controllers
             if (ModelState.IsValid)
             {
                 ViewBag.Message = "Валидация пройдена";
+                logged_in = true;
                 return RedirectToRoute(new { controller = "Books", action = "List" });
             }
             ViewBag.Message = "Запрос не прошел валидацию";
             return View(user);
+        }
+        public ActionResult Details(string login)
+        {
+            var UserDetails = (from user in db.User
+                               where user.Login == login
+                               select user).First();
+            return View(UserDetails);
+
         }
     }
 }
