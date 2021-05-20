@@ -1,127 +1,54 @@
 ﻿@model Syte.Models.Book
 
 @{
-    ViewData["Title"] = "Book";
+    ViewData["Title"] = Model.Name;
 }
 
-<h1>Book</h1>
-
+<h1>@Model.Name</h1>
+<div class="col-lg-4">
+    <img class="img-thumbnail" src="@Html.DisplayFor(model => model.Image)" alt="@Html.DisplayFor(model => model.Name)" />
+</div>
 <div>
-    <h4>@Model.Name</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
+            <label class="control-label">Название</label>
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Name)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Author)
+            <label class="control-label">Автор</label>
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Author.Id)
+            @Html.DisplayFor(model => model.Author.Surname)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
+            <label class="control-label">Описание</label>
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Description)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Image)
+            <label class="control-label">Жанр</label>
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Image)
+            @Html.DisplayFor(model => model.Category.CategoryName)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.IsFavourite)
+            <label class="control-label">Издательство</label>
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.IsFavourite)
+            @Html.DisplayFor(model => model.Publisher.Name)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Category)
+            <label class="control-label">Подборка</label>
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Category.Id)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Publisher)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Publisher.Id)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Compilation)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Compilation.Id)
+            @Html.DisplayFor(model => model.Compilation.Name)
         </dd>
     </dl>
 </div>
 <div>
     <a asp-action="List">Вернуться к библиотеке книг</a>
 </div>
-
-
-
-
-@*<div>
-    <h4>Book</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Author)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Author.Id)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Image)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Image)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.IsFavourite)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.IsFavourite)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Category)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Category.Id)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Publisher)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Publisher.Id)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Compilation)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Compilation.Id)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>*@
