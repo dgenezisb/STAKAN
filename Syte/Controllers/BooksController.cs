@@ -186,8 +186,6 @@ namespace Syte.Controllers
         }
         public ActionResult Book(int id)
         {
-
-
             var ThisBook = (from book in db.Book
                             where book.Id == id
                             select book).First();

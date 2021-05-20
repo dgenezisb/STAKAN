@@ -7,12 +7,12 @@
     <div class="row mt-5 mb-2">
         @{ foreach (var book in Model.AllBooks) {
                 <div class="col-lg-4">
-                <img class="img-thumbnail" src="@book.Image" alt="@book.Name" />
-                <h2>@book.Name</h2>
-                <h5>@book.Author</h5>
-                <p>@book.Description</p>
-                <p><a class="btn btn-warning" href="https://localhost:44352/Books/Book">Читать</a></p>
-            </div> }
+                    <img class="img-thumbnail" src="@book.Image" alt="@book.Name" />
+                    <h2>@book.Name</h2>
+                    <h5>@book.Author</h5>
+                    <p>@book.Description</p>
+                    <input type="button" value="Подробнее" onClick='location.href="https://localhost:44352/Books/Book"' />
+                </div> }
          }
     </div>
     <script scr="~/js/bootstrap.min.js"></script>
