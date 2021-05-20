@@ -646,3 +646,4 @@ C:\Users\maks_\Desktop\Project\ProjectUnik\Syte\obj\Debug\netcoreapp3.1\Razor\Vi
 C:\Users\maks_\Desktop\Project\ProjectUnik\Syte\obj\Debug\netcoreapp3.1\Razor\Views\Compilations\Create.cshtml.g.cs
 C:\Users\maks_\Desktop\Project\ProjectUnik\Syte\obj\Debug\netcoreapp3.1\Razor\Views\Publishers\Create.cshtml.g.cs
 C:\Users\maks_\Desktop\Project\ProjectUnik\Syte\obj\Debug\netcoreapp3.1\Razor\Views\Books\Book.cshtml.g.cs
+C:\Users\maks_\Desktop\Project\ProjectUnik\Syte\obj\Debug\netcoreapp3.1\Razor\Views\User\Profile.cshtml.g.cs
