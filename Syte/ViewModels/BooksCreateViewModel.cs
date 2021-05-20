@@ -9,9 +9,9 @@ namespace Syte.ViewModels
     public class BooksCreateViewModel
     {
         public Book book { get; set; }
-        public Authors authors { get; set; }
-        public Category category { get; set; }
-        public Publisher publisher { get; set; }
-        public Compilations compilations { get; set; }
+        public IEnumerable<Book> bookEnum { get; set; }
+        public Reviews reviews { get; set; }
+
+
     }
 }
