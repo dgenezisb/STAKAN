@@ -11,5 +11,10 @@ namespace Syte.ViewModels
         public IEnumerable<Book> AllBooks { get; set; }
         //public IEnumerable<Category> AllCategories { get; set; }
         public string CurrentCategory { get; set; }
+        public Book book { get; set; }
+        public Authors authors { get; set; }
+        public Category category { get; set; }
+        public Publisher publisher { get; set; }
+        public Compilations compilations { get; set; }
     }
 }

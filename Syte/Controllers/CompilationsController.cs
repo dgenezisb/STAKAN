@@ -18,7 +18,7 @@ namespace Syte.Controllers
             _compilation = iCompilation;
             this.db = db;
         }
-        public ActionResult CreateCompilation()
+        public ActionResult Create()
         {
 
             ViewBag.Compilations = new SelectList(_compilation.ListofCompilations, "Id", "Name");
@@ -26,7 +26,7 @@ namespace Syte.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult CreateCompilation(Compilations compilation)
+        public ActionResult Create(Compilations compilation)
         {
             if (ModelState.IsValid)
             {

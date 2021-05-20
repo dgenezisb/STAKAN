@@ -1,19 +1,23 @@
-﻿@{ ViewData["Title"] = "Книги"; }
+﻿@model IEnumerable<Syte.Models.Book>
+
+@{
+    ViewData["Title"] = "Книги";
+}
 <head>
     <meta name="viewport" content="width=device-width" />
 </head>
 <body>
     <h1>Библиотека книг</h1>
     <div class="row mt-5 mb-2">
-        @{ foreach (var book in Model.AllBooks) {
+        @{ foreach (var item in Model)
+            {
                 <div class="col-lg-4">
-                <img class="img-thumbnail" src="@book.Image" alt="@book.Name" />
-                <h2>@book.Name</h2>
-                <h5>@book.Author</h5>
-                <p>@book.Description</p>
-                <p><a class="btn btn-warning" href="#">Читать</a></p>
-            </div> }
-         }
+                    <img class="img-thumbnail" src="@item.Image" alt="@item.Name" />
+                    <h2>@Html.DisplayFor(modelItem => item.Name)</h2>
+                    <h3>@Html.DisplayFor(modelItem => item.Author.Surname)</h3>
+                    <p>@Html.DisplayFor(modelItem => item.Description)</p>
+                    <a asp-action="Book" asp-route-id="@item.Id">Подробнее</a>
+                </div> } }
     </div>
     <script scr="~/js/bootstrap.min.js"></script>
 </body>

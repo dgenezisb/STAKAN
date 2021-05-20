@@ -80,6 +80,11 @@
             <input type="button" value="Добавить подборку" onClick='location.href="https://localhost:44352/Compilations/Create"' />
 
             <div class="form-group">
+                <label class="control-label">Теги</label>
+                <select asp-for="Tags" class="form-control" asp-items="ViewBag.Tags"></select>
+            </div>
+
+            <div class="form-group">
                 <input type="submit" value="Добавить книгу" class="btn btn-primary" />
             </div>
 
@@ -88,7 +93,7 @@
 </div>
 
 <div>
-    <a asp-action="List">Back to List</a>
+    <a asp-action="List">Вернуться к библиотеке книг</a>
 </div>
 
 @section Scripts {

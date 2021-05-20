@@ -13,7 +13,6 @@ namespace Syte.Controllers
     {
         private readonly IUser _allUsers;
         private readonly AppDBContext db;
-        internal bool logged_in;
         public UserController(IUser IAllUsers, AppDBContext db)
         {
             _allUsers = IAllUsers;
@@ -24,6 +23,12 @@ namespace Syte.Controllers
             User obj = new User();
             return View(obj);
             
+        }
+        public ActionResult Profile(int Id)
+        {
+            User obj = new User();
+            return View(obj);
+
         }
         [HttpPost]
         public ActionResult Create(User user)
@@ -44,24 +49,29 @@ namespace Syte.Controllers
             return View(obj);
         }
         [HttpPost]
-        public ActionResult Login(User user)
+        public ActionResult Login(User user_in)
         {
             if (ModelState.IsValid)
             {
                 ViewBag.Message = "Валидация пройдена";
-                logged_in = true;
+                var users = (from user in db.User select user).ToList();
+                foreach(User item in users)
+                {
+                    if ((item.Login == user_in.Login) && (item.Password == user_in.Password))
+                    {
+                        Profile(user_in.Id);
+                        break;
+                    } else
+                    {
+                        ModelState.AddModelError("User", "Вы ввели неверные данные");
+                        return View();
+                    }
+                }
                 return RedirectToRoute(new { controller = "Books", action = "List" });
             }
-            ViewBag.Message = "Запрос не прошел валидацию";
-            return View(user);
-        }
-        public ActionResult Details(string login)
-        {
-            var UserDetails = (from user in db.User
-                               where user.Login == login
-                               select user).First();
-            return View(UserDetails);
 
+            ViewBag.Message = "Запрос не прошел валидацию";
+            return View(user_in);
         }
     }
 }
