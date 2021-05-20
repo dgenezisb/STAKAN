@@ -43,13 +43,14 @@ namespace Syte.Controllers
             var compilations = (from compilation in db.Compilation select compilation).ToList();
             return View(books);
         }
-        public ViewResult List()
+        public ActionResult List()
         {
-            ViewBag.Title = "Книги";
-            BooksListViewModel obj = new BooksListViewModel();
-            obj.AllBooks = _allBooks.Books;
-            obj.CurrentCategory = "Тут должно быть название жанра";
-            return View(obj);
+            var books = (from book in db.Book select book).ToList();
+            var authors = (from author in db.Authors select author).ToList();
+            var categories = (from category in db.Category select category).ToList();
+            var publishers = (from publisher in db.Publisher select publisher).ToList();
+            var compilations = (from compilation in db.Compilation select compilation).ToList();
+            return View(books);
         }
         public ActionResult Create()
         {
@@ -173,7 +174,6 @@ namespace Syte.Controllers
         public ActionResult Details(int id)
         {
             var books = (from book in db.Book select book).ToList();
-
             var authors = (from author in db.Authors select author).ToList();
             var categories = (from category in db.Category select category).ToList();
             var publishers = (from publisher in db.Publisher select publisher).ToList();
@@ -184,12 +184,16 @@ namespace Syte.Controllers
                                select book).First();
             return View(BookDetails);
         }
-        public ActionResult Book(int id)
+        public ActionResult Book(int Id)
         {
-
+            var books = (from book in db.Book select book).ToList();
+            var authors = (from author in db.Authors select author).ToList();
+            var categories = (from category in db.Category select category).ToList();
+            var publishers = (from publisher in db.Publisher select publisher).ToList();
+            var compilations = (from compilation in db.Compilation select compilation).ToList();
 
             var ThisBook = (from book in db.Book
-                            where book.Id == id
+                            where book.Id == Id
                             select book).First();
             return View(ThisBook);
         }
